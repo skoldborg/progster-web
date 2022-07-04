@@ -1,0 +1,5 @@
+@font-face {
+    font-family: "Reverb-Bold";
+    src: url("./Reverb-Bold.woff2") format("woff2"),
+        url("./Reverb-Bold.woff") format("woff");
+}
