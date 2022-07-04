@@ -2,13 +2,14 @@ import Head from "next/head"
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
 
-export default function Home() {
+export default function About() {
 	return (
 		<>
 			<Head>
 				<title>Progster</title>
 				<meta
 					name="description"
+					key="description"
 					content="I am a web developer with over 10 years experience in helping companies build fast, scalable, and accessible platforms for their digital prescence."
 				/>
 				<link rel="icon" href="/favicon.ico" />
@@ -19,20 +20,7 @@ export default function Home() {
 				h={1}
 				justifyContent="center"
 				alignItems="center"
-			>
-				<Text variant="headline-1" className="long-shadow">
-					PROGSTER
-				</Text>
-
-				<Flex maxw={70}>
-					<Text fontSize={3}>
-						Web Developer <br />
-						Living in Gothenburg <br />
-						+10 years experience <br />
-						Available for hire
-					</Text>
-				</Flex>
-			</Flex>
+			></Flex>
 		</>
 	)
 }

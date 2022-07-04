@@ -1,7 +1,6 @@
 import * as React from "react"
 import styled, { css } from "styled-components"
-import { scale, colors } from "../../styles"
-import { headingFontFamily } from "../../styles"
+import { scale, colors, headingFontFamily } from "../../styles"
 
 export type ButtonSize = "normal" | "small"
 

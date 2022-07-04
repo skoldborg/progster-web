@@ -11,7 +11,7 @@ export interface Variant extends TypographyProps {
 	as: any
 }
 
-export const bodyFontFamily = "helvetica, arial, sans-serif"
+export const bodyFontFamily = "Roboto Mono, helvetica, arial, sans-serif"
 export const headingFontFamily = "Reverb-Bold, helvetica, arial, serif"
 
 export type FontWeight = "normal" | "bold"
@@ -24,7 +24,7 @@ export const fontWeight: Record<FontWeight, string> = {
 export const variants: Record<Variants, Variant> = {
 	"headline-1": {
 		as: "h1",
-		fontSize: { _: 9, s: 16, l: 20, xl: 24 },
+		fontSize: { _: 9, s: 16, l: 20, xl: 20 },
 		fontWeight: "bold",
 		letterSpacing: 0.25,
 		mb: 1.75,
