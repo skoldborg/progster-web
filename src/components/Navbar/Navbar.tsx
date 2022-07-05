@@ -12,7 +12,7 @@ const NavbarStyled = styled(Flex)`
 
 const Navbar: React.FC = (props) => {
 	return (
-		<NavbarStyled as="nav" py={3} px={3}>
+		<NavbarStyled as="nav" py={3} px={3} justifyContent="flex-end">
 			<Button>Menu</Button>
 		</NavbarStyled>
 	)

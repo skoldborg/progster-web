@@ -8,7 +8,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
 	return (
 		<>
-			<Navbar />
+			{/* <Navbar /> */}
 			<Flex as="main" w={1} h={1}>
 				{children}
 			</Flex>

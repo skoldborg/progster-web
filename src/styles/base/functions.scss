@@ -1,15 +1,15 @@
-@function makelongshadow($color) {
+@function makelongshadow($color, $length) {
 	$val: 0px 0px $color;
-	@for $i from 1 through 8 {
+	@for $i from 1 through $length {
 		$val: #{$val}, #{-$i}px #{$i}px #{$color};
 	}
 	@return $val;
 }
 
-@mixin longshadow($color) {
-	text-shadow: makelongshadow($color);
+@mixin longshadow($color, $length) {
+	text-shadow: makelongshadow($color, $length);
 }
 
 .long-shadow {
-	@include longshadow(var(--black));
+	@include longshadow(var(--black), 8);
 }
