@@ -66,7 +66,7 @@ export default css`
 	}
 	a {
 		display: inline-block;
-		text-decoration: none;
+		// text-decoration: none;
 		color: inherit;
 	}
 

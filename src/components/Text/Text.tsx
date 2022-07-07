@@ -89,6 +89,7 @@ const withConfig = {
 			"display",
 			"mr",
 			"whitespace",
+			"letterSpacing",
 			"textColor",
 			"variant",
 		].includes(prop) && defaultValidatorFn(prop),

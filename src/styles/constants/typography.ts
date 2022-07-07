@@ -2,10 +2,11 @@ import { TypographyProps } from "../../styles/styled-system"
 
 export type Variants =
 	| "paragraph-16"
-	| "paragraph-14"
+	| "paragraph-20"
 	| "headline-1"
 	| "headline-2"
 	| "headline-3"
+	| "preamble"
 
 export interface Variant extends TypographyProps {
 	as: any
@@ -18,13 +19,13 @@ export type FontWeight = "normal" | "bold"
 
 export const fontWeight: Record<FontWeight, string> = {
 	normal: "400",
-	bold: "700",
+	bold: "600",
 }
 
 export const variants: Record<Variants, Variant> = {
 	"headline-1": {
 		as: "h1",
-		fontSize: { _: 9, s: 16, l: 20, xl: 20 },
+		fontSize: { _: 9, s: 16, l: 16 },
 		fontWeight: "bold",
 		letterSpacing: 0.25,
 		mb: 1.75,
@@ -46,9 +47,15 @@ export const variants: Record<Variants, Variant> = {
 		fontSize: 2,
 		mb: 2,
 	},
-	"paragraph-14": {
+	"paragraph-20": {
 		as: "p",
-		fontSize: 1.75,
+		fontSize: 2.5,
+		mb: 2,
+	},
+	preamble: {
+		as: "p",
+		fontSize: 3,
+		fontWeight: "bold",
 		mb: 2,
 	},
 }

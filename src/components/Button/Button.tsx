@@ -38,8 +38,8 @@ export const ButtonStyles = css<ButtonProps>`
 		position: relative;
 		z-index: 2;
 		text-align: center;
-		background: ${colors.orange};
-		border: 1px solid #ea4715;
+		background: var(--orange);
+		border: 1px solid var(--orange);
 		color: ${colors.white};
 		letter-spacing: 1px;
 		border-radius: 10px;
