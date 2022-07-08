@@ -22,20 +22,20 @@ export const colorKeys = [
 export type ColorKeys = typeof colorKeys[number]
 
 // Primaries
-const black = "#000000"
-const black33 = "#333333"
-const white = "#FFFFFF"
-const red = "#ea4715"
-const orange = "#ff6b01"
-const pink = "#ffc3de"
-const green = "#009c45"
-const yellow = "#ffd200"
-const brown = "#85543c"
-const mint = "#00e09d"
-const cream = "#f2e8d9"
-const darkcream = "#cbc3b6"
-const gray = "#949494"
-const lightgray = "#e6e6e6"
+const black = "var(--black)"
+const black33 = "var(--black33)"
+const white = "var(--white)"
+const red = "var(--red)"
+const orange = "var(--orange)"
+const pink = "var(--pink)"
+const green = "var(--green)"
+const yellow = "var(--yellow)"
+const brown = "var(--brown)"
+const mint = "var(--mint)"
+const cream = "var(--cream)"
+const darkcream = "var(--darkcream)"
+const gray = "var(--gray)"
+const lightgray = "var(--lightgray)"
 
 export const colors: Record<ColorKeys, CSS.Property.Color> = {
 	black,
@@ -52,6 +52,6 @@ export const colors: Record<ColorKeys, CSS.Property.Color> = {
 	darkcream,
 	gray,
 	lightgray,
-	bodyColor: black33,
-	bodyTextColor: white,
+	bodyColor: orange,
+	bodyTextColor: black33,
 }

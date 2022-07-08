@@ -28,28 +28,28 @@ export default css`
 	}
 	body {
 		position: relative;
-		background-color: ${({ theme }) => theme.colors.bodyColor};
-		color: ${({ theme }) => theme.colors.bodyTextColor};
+		background-color: var(--orange);
+		color: ${({ theme }) => theme.colors.black};
 		height: 100%;
 
-		&:after {
-			content: "";
-			display: block;
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top: 0;
-			left: 0;
-			background: radial-gradient(
-				circle at -30%,
-				#333,
-				#333 20%,
-				var(--red) 70%,
-				var(--orange) 80%,
-				#333 81%
-			);
-			z-index: -1;
-		}
+		// &:after {
+		// 	content: "";
+		// 	display: block;
+		// 	width: 100%;
+		// 	height: 100%;
+		// 	position: absolute;
+		// 	top: 0;
+		// 	left: 0;
+		// 	background: radial-gradient(
+		// 		circle at -30%,
+		// 		#333,
+		// 		#333 20%,
+		// 		var(--red) 70%,
+		// 		var(--orange) 80%,
+		// 		#333 81%
+		// 	);
+		// 	z-index: -1;
+		// }
 	}
 	body > div:first-child,
 	div#__next,

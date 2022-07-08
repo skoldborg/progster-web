@@ -3,6 +3,7 @@ import { TypographyProps } from "../../styles/styled-system"
 export type Variants =
 	| "paragraph-16"
 	| "paragraph-20"
+	| "headline-1-plus"
 	| "headline-1"
 	| "headline-2"
 	| "headline-3"
@@ -12,8 +13,8 @@ export interface Variant extends TypographyProps {
 	as: any
 }
 
-export const bodyFontFamily = "Roboto Mono, helvetica, arial, sans-serif"
-export const headingFontFamily = "Reverb-Bold, helvetica, arial, serif"
+export const bodyFontFamily = "'Roboto Mono', helvetica, arial, sans-serif"
+export const headingFontFamily = "'Reverb-Bold', helvetica, arial, serif"
 
 export type FontWeight = "normal" | "bold"
 
@@ -23,9 +24,16 @@ export const fontWeight: Record<FontWeight, string> = {
 }
 
 export const variants: Record<Variants, Variant> = {
+	"headline-1-plus": {
+		as: "h1",
+		fontSize: { _: 9, s: 16 },
+		fontWeight: "bold",
+		letterSpacing: 0.25,
+		mb: 1.75,
+	},
 	"headline-1": {
 		as: "h1",
-		fontSize: { _: 9, s: 16, l: 16 },
+		fontSize: { _: 4, s: 6, l: 10 },
 		fontWeight: "bold",
 		letterSpacing: 0.25,
 		mb: 1.75,

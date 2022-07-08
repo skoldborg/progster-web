@@ -11,5 +11,5 @@
 }
 
 .long-shadow {
-	@include longshadow(var(--black), 8);
+	@include longshadow(var(--black), 1000);
 }

@@ -1,13 +1,21 @@
 import Head from "next/head"
 import Link from "next/link"
-import { Button } from "../components/Button"
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
-// import styled from "styled-components"
+import styled from "styled-components"
+import { breakpoint, headingFontFamily } from "../styles"
 
-// const Section = styled(Flex)`
+const Title = styled(Text)`
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-family: ${headingFontFamily};
 
-// `
+	${breakpoint("xxl")`
+        left: 18%;
+        right: auto;
+    `}
+`
 
 export default function Home() {
 	return (
@@ -20,19 +28,24 @@ export default function Home() {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Flex flexDirection="column">
+
+			<Flex w={1} flexDirection="column">
 				<Flex
 					as="section"
-					flexDirection="column"
-					w={1}
+					flexDirection="column-reverse"
+					position="relative"
 					h={1}
 					minh="100vh"
-					pl={{ _: 3, l: 6 }}
-					justifyContent="center"
+					alignItems="flex-end"
+					m={{ l: 3 }}
 				>
-					<Text variant="headline-1" className="long-shadow">
+					<Title
+						variant="headline-1-plus"
+						className="long-shadow"
+						textColor="white"
+					>
 						PROGSTER
-					</Text>
+					</Title>
 
 					<Flex flexDirection="column" maxw={70}>
 						<Text fontSize={3} mb={6}>

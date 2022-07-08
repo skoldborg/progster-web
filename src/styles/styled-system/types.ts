@@ -82,10 +82,6 @@ export interface BorderProps {
 	 *   Adds a border
 	 */
 	border?: ResponsiveValue<boolean>
-	/**
-	 *   Overrides the deafult border color
-	 */
-	borderColor?: ResponsiveValue<BorderColorKeys>
 }
 
 export interface LayoutSizeProps {

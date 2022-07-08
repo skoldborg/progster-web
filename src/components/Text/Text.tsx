@@ -12,6 +12,7 @@ import {
 } from "styled-system"
 import { variants, Variants } from "../../styles/constants/typography"
 import { typography, TypographyProps } from "../../styles/styled-system"
+import { colors } from "../../styles"
 
 export interface TextProps
 	extends TypographyProps,
@@ -75,7 +76,7 @@ export const textStyles = css`
 	${(props) =>
 		!(props as TextProps).textColor &&
 		css`
-				color: ${props.theme.colors.bodyTextColor};
+				color: ${colors.bodyTextColor};
 		
 		}`}
 `
@@ -86,6 +87,7 @@ const withConfig = {
 			"lineHeight",
 			"fontWeight",
 			"fontSize",
+			"fontFamily",
 			"display",
 			"mr",
 			"whitespace",
