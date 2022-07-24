@@ -51,23 +51,30 @@ export default css`
 		// 	z-index: -1;
 		// }
 	}
-	body > div:first-child,
-	div#__next,
-	div#__next > div {
-		height: 100%;
-	}
+
+	// body > div:first-child,
+	// div#__next,
+	// div#__next > div {
+	// 	height: 100%;
+	// }
+
 	*,
 	*:before,
 	*:after {
 		box-sizing: inherit;
 	}
+
 	img {
 		max-width: 100%;
 	}
+
 	a {
 		display: inline-block;
-		// text-decoration: none;
 		color: inherit;
+	}
+
+	svg:not(:root) {
+		overflow: hidden;
 	}
 
 	.visually-hidden {
