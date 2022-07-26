@@ -10,7 +10,7 @@ const HeroGraphicsOuter = styled.div`
 const HeroGraphicsSvg = styled.svg`
 	position: absolute;
 	top: 0;
-	right: 0;
+	right: 20%;
 	height: auto;
 	width: 400%;
 	transition: transform 1500ms cubic-bezier(0, 0.5, 0, 1) 0ms;

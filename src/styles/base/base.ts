@@ -36,7 +36,7 @@ export default css`
 		// 	content: "";
 		// 	display: block;
 		// 	width: 100%;
-		// 	height: 100%;
+		// 	height: 300%;
 		// 	position: absolute;
 		// 	top: 0;
 		// 	left: 0;
@@ -45,7 +45,7 @@ export default css`
 		// 		#333,
 		// 		#333 20%,
 		// 		var(--red) 70%,
-		// 		var(--orange) 80%,
+		// 		var(--orange) 75%,
 		// 		#333 81%
 		// 	);
 		// 	z-index: -1;
