@@ -36,7 +36,7 @@ const Intro = styled(Text)`
 	font-size: 24px;
 	margin-right: 24px;
 	margin-bottom: 0;
-	color: var(--white);
+	color: var(--cream);
 	position: absolute;
 	top: max(360px, 75vh, 110vw);
 	text-align: center;
@@ -145,19 +145,19 @@ export default function Home() {
 			>
 				<AboutContainer ref={aboutRef} className={inView ? "" : "hide"}>
 					<Flex flexDirection="column" maxw={80} w={1}>
-						<Text textColor="white" variant="preamble">
+						<Text textColor="cream" variant="preamble">
 							I am Pierre Sköldborg, a web developer from Sweden living in
 							Gothenburg.
 						</Text>
 
-						<Text textColor="white" variant="paragraph-20">
+						<Text textColor="cream" variant="paragraph-20">
 							Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae
 							unde tempore excepturi pariatur sit. Repellat mollitia vero, omnis
 							aut vitae minus explicabo obcaecati cumque enim, quis voluptatem,
 							earum laudantium nesciunt.
 						</Text>
 
-						<Text textColor="white" variant="paragraph-20">
+						<Text textColor="cream" variant="paragraph-20">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
 							labore ullam facere ipsam similique animi iste voluptatum
 							provident architecto est neque eligendi dolores tempore nisi

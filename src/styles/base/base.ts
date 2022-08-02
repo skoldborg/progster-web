@@ -9,8 +9,8 @@ export default css`
 	:root {
 		--white: #ffffff;
 		--black: #000000;
-		--red: #ea4715;
-		--orange: #ff6b01;
+		--red: #e95257;
+		--orange: #f08a5d;
 		--pink: #ffc3de;
 		--green: #009c45;
 		--yellow: #ffd200;
@@ -44,9 +44,9 @@ export default css`
 		// 		circle at -30%,
 		// 		#333,
 		// 		#333 20%,
-		// 		var(--red) 70%,
-		// 		var(--orange) 75%,
-		// 		#333 81%
+		// 		var(--red) 85%,
+		// 		var(--orange) 87%,
+		// 		#333 87%
 		// 	);
 		// 	z-index: -1;
 		// }
