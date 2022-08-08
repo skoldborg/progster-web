@@ -13,8 +13,10 @@ export interface Variant extends TypographyProps {
 	as: any
 }
 
-export const bodyFontFamily = "'Roboto Mono', helvetica, arial, sans-serif"
-export const headingFontFamily = "'Reverb-Bold', helvetica, arial, serif"
+export const bodyFontFamily =
+	"'DM Sans', 'Roboto Mono', helvetica, arial, sans-serif"
+export const headingFontFamily =
+	"'Condiment', 'Reverb-Bold', helvetica, arial, serif"
 
 export type FontWeight = "normal" | "bold"
 

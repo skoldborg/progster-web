@@ -28,7 +28,7 @@ export default css`
 	}
 	body {
 		position: relative;
-		background-color: var(--orange);
+		background-color: var(--black);
 		color: ${({ theme }) => theme.colors.black};
 		height: 100%;
 

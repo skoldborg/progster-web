@@ -1,14 +1,17 @@
 import Head from "next/head"
-import Link from "next/link"
-import Image from "next/image"
+import React from "react"
+
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
-import { colors } from "../styles/constants"
-import { HeroGraphics } from "../components/HeroGraphics"
-import styled, { css } from "styled-components"
-import { breakpoint } from "../styles"
-import { fadeInUp, TRANSITION_CURVE } from "../styles/constants"
-import { useInView } from "react-intersection-observer"
+import { AnimatedGradient } from "../components/AnimatedGradient"
+import styled from "styled-components"
+
+const Title = styled(Text)`
+	position: absolute;
+	top: 24px;
+	left: 50%;
+	transform: translateX(-50%);
+`
 
 const BorderBox = styled.div`
 	position: absolute;
@@ -20,10 +23,6 @@ const BorderBox = styled.div`
 `
 
 export default function Home() {
-	const { ref: aboutRef, inView } = useInView({
-		threshold: 0.2,
-	})
-
 	return (
 		<>
 			<Head>
@@ -35,20 +34,20 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<Flex
-				as="section"
-				position="relative"
-				w="100vw"
-				h="100vh"
-				// justifyContent="center"
-				// alignItems="center"
-				p={3}
-			>
-				<BorderBox></BorderBox>
-				<Flex flexDirection="column" p={3}>
-					<Text fontSize={3}>Progster</Text>
-
-					<Text>
+			<Flex as="section" position="relative" w="100vw" h="100vh" p={3}>
+				<AnimatedGradient />
+				<Title variant="headline-1" textAlign="center">
+					Progster
+				</Title>
+				<Flex
+					w={1}
+					flexDirection="column"
+					position="relative"
+					p={3}
+					alignItems="center"
+					justifyContent="center"
+				>
+					<Text textAlign="center" fontSize={4}>
 						Hi, I'm Pierre Sköldborg. <br /> I make internets.
 					</Text>
 				</Flex>
