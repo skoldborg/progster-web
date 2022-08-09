@@ -28,7 +28,13 @@ export default css`
 	}
 	body {
 		position: relative;
-		background-color: var(--black);
+		background: linear-gradient(
+			to bottom right,
+			#485da6 10%,
+			#36c486 30%,
+			#00a1ba 80%,
+			#485da6 100%
+		);
 		color: ${({ theme }) => theme.colors.black};
 		height: 100%;
 

@@ -1,7 +1,7 @@
 import type { AppProps } from "next/app"
 import { ThemeProvider } from "styled-components"
 import { theme, GlobalStyles } from "../styles"
-import "../../public/fonts/fonts.css"
+// import "../../public/fonts/fonts.css"
 import "../styles/base/functions.scss"
 import { Layout } from "../components/Layout"
 
