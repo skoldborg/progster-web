@@ -1,6 +1,6 @@
 import { keyframes } from "styled-components"
 
-export const TRANSITION_CURVE = `cubic-bezier(.789, .301, 0, .956)`
+export const TRANSITION_CURVE = `cubic-bezier(.79, .3, 0, .96)`
 
 export const fadeInUp = keyframes`
     0% {

@@ -18,7 +18,6 @@ export interface ButtonComponent {
 }
 
 export const ButtonStyles = css<ButtonProps>`
-	position: relative;
 	display: inline-block;
 	margin: 0;
 	padding: 0;
@@ -38,12 +37,12 @@ export const ButtonStyles = css<ButtonProps>`
 		position: relative;
 		z-index: 2;
 		text-align: center;
-		background: var(--orange);
-		border: 1px solid var(--orange);
-		color: ${colors.white};
+		background: ${colors.white};
+		border: 1px solid ${colors.white};
+		color: ${colors.black};
 		letter-spacing: 1px;
 		border-radius: 10px;
-		padding: ${scale.px(2)} ${scale.px(3.75)};
+		padding: ${scale.px(1.5)} ${scale.px(2)};
 		font-size: ${scale.px(3)};
 		line-height: ${scale.px(3)};
 		text-transform: uppercase;

@@ -7,10 +7,10 @@ export default css`
 	}
 
 	:root {
-		--white: #ffffff;
+		--white: #fff;
 		--black: #000000;
 		--red: #e95257;
-		--orange: #f08a5d;
+		--orange: #de8c6e;
 		--pink: #ffc3de;
 		--green: #009c45;
 		--yellow: #ffd200;
@@ -28,7 +28,14 @@ export default css`
 	}
 	body {
 		position: relative;
-		background-color: var(--orange);
+		background: linear-gradient(
+			to bottom right,
+			#fe9908 10%,
+			#fe7a0b 30%,
+			#fa6914 50%,
+			#e55f17 80%,
+			#c15016 100%
+		);
 		color: ${({ theme }) => theme.colors.black};
 		height: 100%;
 
