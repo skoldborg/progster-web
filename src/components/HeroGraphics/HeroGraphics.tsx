@@ -41,7 +41,7 @@ interface HeroGraphicsProps {
 
 const HeroGraphics: React.FC<HeroGraphicsProps> = ({ visible }) => {
 
-	const assetsPrefix = process.env.NODE_ENV === "development" ? "" : "progster-web" 
+	const assetsPrefix = process.env.NODE_ENV === "development" ? "" : "/progster-web" 
 	
 	return (
 		<HeroGraphicsOuter>
@@ -65,7 +65,7 @@ const HeroGraphics: React.FC<HeroGraphicsProps> = ({ visible }) => {
 						<rect x="0" y="0" width="100%" height="100%" fill="#000"></rect>
 						<g transform="translate(-1200,0)">
 							<image
-								href={`/${assetsPrefix}/stars.jpg`}
+								href={`${assetsPrefix}/stars.jpg`}
 								x="100%"
 								y="50"
 								width="1200"
