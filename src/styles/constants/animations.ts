@@ -15,3 +15,13 @@ export const fadeInUp = keyframes`
         opacity: 1;
     }
 `
+
+export const rollInLeft = keyframes`
+    0% {
+        transform:  translateY(-50%) translateX(110%) rotate(25deg);
+    }
+    
+    100% {
+        transform: translateY(-50%) translateX(0) rotate(15deg);
+    }
+`

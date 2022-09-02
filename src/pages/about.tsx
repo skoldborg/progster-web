@@ -1,17 +1,40 @@
 import Head from "next/head"
 import Image from "next/image"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
+import { rollInLeft, fadeInUp, TRANSITION_CURVE } from "../styles"
+
+export const fadeInContainer = css`
+	animation-name: ${fadeInUp};
+	animation-timing-function: ${TRANSITION_CURVE};
+	animation-duration: 1s;
+	animation-delay: 0;
+	animation-fill-mode: both;
+`
+
+const AboutContainer = styled(Flex)`
+	${fadeInContainer}
+`
+
+const rollInImage = css`
+	animation-name: ${rollInLeft};
+	animation-timing-function: ${TRANSITION_CURVE};
+	animation-duration: 1s;
+	animation-delay: 0.8s;
+	animation-fill-mode: both;
+`
 
 const ItsameContainer = styled.figure`
 	position: absolute;
 	right: -40px;
-	top: 50%;
-	transform: translateY(-50%) rotate(15deg);
-	width: 240px;
-	height: 240px;
+	top: 60%;
+	transform: translateY(-50%);
+	width: 320px;
+	height: auto;
 	z-index: 0;
+
+	${rollInImage}
 `
 
 export default function About() {
@@ -42,7 +65,7 @@ export default function About() {
 						position="relative"
 						zIndex="1"
 					>
-						<Flex
+						<AboutContainer
 							h={1}
 							flexDirection="column"
 							justifyContent="center"
@@ -66,7 +89,7 @@ export default function About() {
 								provident architecto est neque eligendi dolores tempore nisi
 								obcaecati placeat, doloremque corporis suscipit.
 							</Text>
-						</Flex>
+						</AboutContainer>
 					</Flex>
 					<ItsameContainer>
 						<Image

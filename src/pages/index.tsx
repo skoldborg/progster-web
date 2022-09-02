@@ -7,15 +7,7 @@ import { colors } from "../styles/constants"
 import { HeroGraphics } from "../components/HeroGraphics"
 import styled, { css } from "styled-components"
 import { breakpoint } from "../styles"
-import { fadeInUp, TRANSITION_CURVE } from "../styles/constants"
-
-export const fadeInContainer = css`
-	animation-name: ${fadeInUp};
-	animation-timing-function: ${TRANSITION_CURVE};
-	animation-duration: 1s;
-	animation-delay: 1.5s;
-	animation-fill-mode: both;
-`
+import { TRANSITION_CURVE } from "../styles/constants"
 
 const IntroContainer = styled(Flex)`
 	position: absolute;
