@@ -60,6 +60,7 @@ const Intro = styled(Text)`
 `
 
 export default function Home() {
+	const ref = React.useRef(null)
 	const [heroGraphicsVisible, setHeroGraphicsVisible] = React.useState(false)
 	const [introTextVisible, setIntroTextVisible] = React.useState(false)
 
@@ -90,11 +91,11 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
-			<Flex as="section" display="block">
+			<Flex as="section" display="block" ref={ref}>
 				<h1 className="visually-hidden">Progster - Freelance Web Developer</h1>
 				<Flex flexDirection="column" w={1} h="100vh" maxw={240} mx="auto">
 					<Flex h={1} display="block" m={{ _: 2, l: 12 }} position="relative">
-						<HeroGraphics visible={heroGraphicsVisible} />
+						<HeroGraphics visible={heroGraphicsVisible} parentRef={ref} />
 						<IntroContainer className={introTextVisible ? "reveal" : ""}>
 							<Intro fontSize={3} mb={6}>
 								Hi, I'm&nbsp;
@@ -109,25 +110,12 @@ export default function Home() {
 									</a>
 								</Link>
 								.
-								<br />I make&nbsp;
-								<Link href="/work">
-									<a>internets</a>
-								</Link>
-								.
+								<br />I make internets.
 							</Intro>
 						</IntroContainer>
 					</Flex>
 				</Flex>
 			</Flex>
-
-			{/* <Image
-                src="/itsame.png"
-                alt="A picture of myself on one of my better days"
-                width="646"
-                height="795"
-                layout="responsive"
-                quality="100"
-            /> */}
 		</>
 	)
 }

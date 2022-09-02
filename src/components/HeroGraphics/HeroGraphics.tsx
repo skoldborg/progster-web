@@ -1,6 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
 import { breakpoint } from "../../styles"
+import useMouse, { MousePosition } from "@react-hook/mouse-position"
 
 const HeroGraphicsOuter = styled.div`
 	position: relative;
@@ -35,14 +36,35 @@ const HeroGraphicsSvg = styled.svg`
     `}
 `
 
-interface HeroGraphicsProps {
-	visible?: boolean
+interface HeroGraphicsBgProps {
+	mouse: MousePosition
 }
 
-const HeroGraphics: React.FC<HeroGraphicsProps> = ({ visible }) => {
+const HeroGraphicsBg = styled.image<HeroGraphicsBgProps>`
+	transform: translate(
+		-${(props) => props.mouse.x / 50}px,
+		-${(props) => props.mouse.y / 50}px
+	);
+	transition: transform 0.1s ease;
+`
 
-	const assetsPrefix = process.env.NODE_ENV === "development" ? "" : "/progster-web" 
-	
+interface HeroGraphicsProps {
+	visible?: boolean
+	parentRef: React.MutableRefObject<any>
+}
+
+const HeroGraphics: React.FC<HeroGraphicsProps> = ({ visible, parentRef }) => {
+	const assetsPrefix =
+		process.env.NODE_ENV === "development" ? "" : "/progster-web"
+
+	const mouse = useMouse(parentRef, {
+		fps: 60,
+		enterDelay: 100,
+		leaveDelay: 100,
+	})
+
+	const starsBgRef = React.useRef(null)
+
 	return (
 		<HeroGraphicsOuter>
 			<HeroGraphicsSvg
@@ -64,12 +86,14 @@ const HeroGraphics: React.FC<HeroGraphicsProps> = ({ visible }) => {
 					>
 						<rect x="0" y="0" width="100%" height="100%" fill="#000"></rect>
 						<g transform="translate(-1200,0)">
-							<image
+							<HeroGraphicsBg
+								ref={starsBgRef}
 								href={`${assetsPrefix}/stars.jpg`}
 								x="100%"
 								y="50"
 								width="1200"
 								height="767"
+								mouse={mouse}
 							/>
 						</g>
 					</pattern>
