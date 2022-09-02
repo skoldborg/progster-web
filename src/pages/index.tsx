@@ -1,6 +1,5 @@
 import Head from "next/head"
 import Link from "next/link"
-import Image from "next/image"
 import React from "react"
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
@@ -41,11 +40,10 @@ const IntroContainer = styled(Flex)`
     `}
 `
 
-const Intro = styled(Text)`
-	font-size: 24px;
-	margin-bottom: 0;
+const IntroInner = styled.div`
 	position: absolute;
-	top: max(360px, 75vh, 110vw);
+	top: max(360px, 55vh, 110vw);
+	right: 0;
 	text-align: center;
 	color: ${colors.white};
 	width: 100%;
@@ -54,9 +52,12 @@ const Intro = styled(Text)`
 	${breakpoint("s")`
         top: unset;
         bottom: 0;
-        right: 20%;
         text-align: right;
     `}
+
+	${breakpoint("l")`
+		right: 20%;
+	`}
 `
 
 export default function Home() {
@@ -94,24 +95,31 @@ export default function Home() {
 			<Flex as="section" display="block" ref={ref}>
 				<h1 className="visually-hidden">Progster - Freelance Web Developer</h1>
 				<Flex flexDirection="column" w={1} h="100vh" maxw={240} mx="auto">
-					<Flex h={1} display="block" m={{ _: 2, l: 12 }} position="relative">
+					<Flex
+						h={1}
+						display="block"
+						m={{ _: 3, m: 5, l: 5 }}
+						position="relative"
+					>
 						<HeroGraphics visible={heroGraphicsVisible} parentRef={ref} />
 						<IntroContainer className={introTextVisible ? "reveal" : ""}>
-							<Intro fontSize={3} mb={6}>
-								Hi, I'm&nbsp;
-								<Link href="#about">
-									<a
-										onClick={() => {
-											setHeroGraphicsVisible(false)
-											setIntroTextVisible(false)
-										}}
-									>
-										Pierre Sköldborg
-									</a>
-								</Link>
-								.
-								<br />I make internets.
-							</Intro>
+							<IntroInner>
+								<Text fontSize={3}>
+									Hi, I'm&nbsp;
+									<Link href="#about">
+										<a
+											onClick={() => {
+												setHeroGraphicsVisible(false)
+												setIntroTextVisible(false)
+											}}
+										>
+											Pierre Sköldborg
+										</a>
+									</Link>
+									.
+									<br />I make internets.
+								</Text>
+							</IntroInner>
 						</IntroContainer>
 					</Flex>
 				</Flex>

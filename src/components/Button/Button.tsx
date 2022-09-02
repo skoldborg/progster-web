@@ -18,6 +18,7 @@ export interface ButtonComponent {
 }
 
 export const ButtonStyles = css<ButtonProps>`
+	position: relative;
 	display: inline-block;
 	margin: 0;
 	padding: 0;

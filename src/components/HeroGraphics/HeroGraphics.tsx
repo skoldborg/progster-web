@@ -10,10 +10,10 @@ const HeroGraphicsOuter = styled.div`
 
 const HeroGraphicsSvg = styled.svg`
 	position: absolute;
-	top: 0;
-	right: 20%;
+	top: 5%;
+	right: 0%;
 	height: auto;
-	width: 400%;
+	width: 480%;
 	transition: transform 750ms cubic-bezier(0.5, 0, 1, 0) 0ms;
 
 	transform: translate(-100vw, 100vw);
@@ -28,11 +28,13 @@ const HeroGraphicsSvg = styled.svg`
 	}
 
 	${breakpoint("xs")`
+		top: 0;
         width: 300%;
     `}
 
-	${breakpoint("m")`
+	${breakpoint("l")`
         width: 250%;
+		right: 20%;
     `}
 `
 
