@@ -1,5 +1,6 @@
 import Head from "next/head"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import React from "react"
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
@@ -53,13 +54,15 @@ const IntroInner = styled.div`
 `
 
 export default function Home() {
+	const router = useRouter()
 	const ref = React.useRef(null)
-	const [heroGraphicsVisible, setHeroGraphicsVisible] = React.useState(false)
-	const [introTextVisible, setIntroTextVisible] = React.useState(false)
+	const [heroGraphicsIsVisible, setHeroGraphicsIsVisible] =
+		React.useState(false)
+	const [introTextIsVisible, setIntroTextIsVisible] = React.useState(false)
 
 	React.useEffect(() => {
 		const timeout = setTimeout(() => {
-			setHeroGraphicsVisible(true)
+			setHeroGraphicsIsVisible(true)
 		}, 0)
 
 		return () => clearTimeout(timeout)
@@ -67,7 +70,7 @@ export default function Home() {
 
 	React.useEffect(() => {
 		const timeout = setTimeout(() => {
-			setIntroTextVisible(true)
+			setIntroTextIsVisible(true)
 		}, 1500)
 
 		return () => clearTimeout(timeout)
@@ -93,16 +96,22 @@ export default function Home() {
 						m={{ _: 3, m: 5, l: 5 }}
 						position="relative"
 					>
-						<HeroGraphics visible={heroGraphicsVisible} parentRef={ref} />
-						<IntroContainer className={introTextVisible ? "reveal" : ""}>
+						<HeroGraphics isVisible={heroGraphicsIsVisible} parentRef={ref} />
+						<IntroContainer className={introTextIsVisible ? "reveal" : ""}>
 							<IntroInner>
 								<Text fontSize={3}>
 									Hi, I'm&nbsp;
-									<Link href="#about">
+									<Link href="/about">
 										<a
-											onClick={() => {
-												setHeroGraphicsVisible(false)
-												setIntroTextVisible(false)
+											onClick={(e) => {
+												e.preventDefault()
+
+												setHeroGraphicsIsVisible(false)
+												setIntroTextIsVisible(false)
+
+												setTimeout(() => {
+													router.push("/about")
+												}, 1200)
 											}}
 										>
 											Pierre Sköldborg

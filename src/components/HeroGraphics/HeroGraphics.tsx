@@ -51,11 +51,14 @@ const HeroGraphicsBg = styled.image<HeroGraphicsBgProps>`
 `
 
 interface HeroGraphicsProps {
-	visible?: boolean
+	isVisible?: boolean
 	parentRef: React.MutableRefObject<any>
 }
 
-const HeroGraphics: React.FC<HeroGraphicsProps> = ({ visible, parentRef }) => {
+const HeroGraphics: React.FC<HeroGraphicsProps> = ({
+	isVisible,
+	parentRef,
+}) => {
 	const assetsPrefix =
 		process.env.NODE_ENV === "development" ? "" : "/progster-web"
 
@@ -73,7 +76,7 @@ const HeroGraphics: React.FC<HeroGraphicsProps> = ({ visible, parentRef }) => {
 				viewBox="0 0 3573.11 2977.53"
 				width="3573.11"
 				height="2977.53"
-				className={visible ? "reveal" : ""}
+				className={isVisible ? "reveal" : ""}
 			>
 				<title>Progster</title>
 				<defs>
