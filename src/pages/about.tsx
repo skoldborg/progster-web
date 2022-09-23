@@ -37,6 +37,32 @@ const ItsameContainer = styled.figure`
 	${rollInImage}
 `
 
+const VerbosityRegulator = styled.input`
+	width: 100%;
+	-webkit-appearance: none;
+	background: transparent;
+
+	::-webkit-slider-thumb {
+		-webkit-appearance: none;
+	}
+
+	::-ms-track {
+		width: 100%;
+		cursor: pointer;
+		background: transparent;
+		border-color: transparent;
+		color: transparent;
+	}
+
+	// Thumb
+	::-webkit-slider-thumb {
+		width: 24px;
+		height: 24px;
+		background-color: var(--white);
+		border-radius: 50%;
+	}
+`
+
 export default function About() {
 	return (
 		<>
@@ -48,18 +74,16 @@ export default function About() {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Flex as="section" display="block">
+			<Flex as="section" flexDirection="column" h={1} justifyContent="center">
 				<h1 className="visually-hidden">Progster - Freelance Web Developer</h1>
 				<Flex
 					flexDirection="column"
 					w={1}
-					h="100vh"
 					maxw={240}
 					mx="auto"
 					alignItems="center"
 				>
 					<Flex
-						h={1}
 						display="block"
 						m={{ _: 3, m: 5, l: 5 }}
 						position="relative"
@@ -69,29 +93,39 @@ export default function About() {
 							h={1}
 							flexDirection="column"
 							justifyContent="center"
-							maxw={70}
+							alignItems="center"
+							maxw={80}
 						>
 							<Text variant="preamble">
-								I am Pierre Sköldborg, a web developer from Sweden living in
-								Gothenburg.
+								Hey! My name is Pierre Sköldborg. I'm a web developer from
+								Sweden living in Gothenburg.
 							</Text>
 
 							<Text variant="paragraph-20">
-								Lorem, ipsum dolor sit amet consectetur adipisicing elit. Beatae
-								unde tempore excepturi pariatur sit. Repellat mollitia vero,
-								omnis aut vitae minus explicabo obcaecati cumque enim, quis
-								voluptatem, earum laudantium nesciunt.
+								I've been making websites since stuff like HTML Frames were must
+								haves for every site, and CSS was the shiny new toy. A lot has
+								happened since then.
 							</Text>
 
 							<Text variant="paragraph-20">
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta
-								labore ullam facere ipsam similique animi iste voluptatum
-								provident architecto est neque eligendi dolores tempore nisi
-								obcaecati placeat, doloremque corporis suscipit.
+								For my own part I took my web development hobby and turned it
+								into a profession back in 2013, and since then I've had the
+								privilege of working with a wide variety of clients and
+								agencies.
 							</Text>
 						</AboutContainer>
+						<VerbosityRegulator
+							type="range"
+							id="verbosity-regulator"
+							name="verbosity-regulator"
+							min="1"
+							max="3"
+						/>
+						<label className="visually-hidden" htmlFor="verbosity-regulator">
+							Regulate the verbosity of my tired about text.
+						</label>
 					</Flex>
-					<ItsameContainer>
+					{/* <ItsameContainer>
 						<Image
 							src="/itsame-polaroid.png"
 							alt="A picture of myself on one of my better days"
@@ -100,7 +134,7 @@ export default function About() {
 							layout="responsive"
 							quality="100"
 						/>
-					</ItsameContainer>
+					</ItsameContainer> */}
 				</Flex>
 			</Flex>
 		</>

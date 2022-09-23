@@ -9,7 +9,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 	return (
 		<>
 			{/* <Navbar /> */}
-			<Flex as="main" display="block" w={1} style={{ overflowY: "hidden" }}>
+			<Flex as="main" display="block" w={1} h={1}>
 				{children}
 			</Flex>
 		</>

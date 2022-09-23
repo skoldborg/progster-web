@@ -89,7 +89,14 @@ export default function Home() {
 
 			<Flex as="section" display="block" ref={ref}>
 				<h1 className="visually-hidden">Progster - Freelance Web Developer</h1>
-				<Flex flexDirection="column" w={1} h="100vh" maxw={240} mx="auto">
+				<Flex
+					flexDirection="column"
+					w={1}
+					h="100vh"
+					maxw={240}
+					mx="auto"
+					style={{ overflowY: "hidden" }}
+				>
 					<Flex
 						h={1}
 						display="block"

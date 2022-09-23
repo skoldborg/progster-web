@@ -36,6 +36,7 @@ export default css`
 			#e55f17 80%,
 			#c15016 100%
 		);
+		background-attachment: fixed;
 		color: ${({ theme }) => theme.colors.black};
 		height: 100%;
 
@@ -59,11 +60,11 @@ export default css`
 		// }
 	}
 
-	// body > div:first-child,
-	// div#__next,
-	// div#__next > div {
-	// 	height: 100%;
-	// }
+	body > div:first-child,
+	div#__next,
+	div#__next > div {
+		height: 100%;
+	}
 
 	*,
 	*:before,
