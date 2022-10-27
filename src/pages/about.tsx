@@ -1,6 +1,5 @@
 import React from "react"
 import Head from "next/head"
-import Image from "next/image"
 import Link from "next/link"
 import styled, { css } from "styled-components"
 import { Flex } from "../components/Flex"
@@ -44,8 +43,13 @@ const BackLink = styled.a`
 	display: flex;
 	align-items: center;
 	position: absolute;
-	left: 32px;
+	left: 24px;
 	top: 32px;
+	z-index: 2;
+
+	${breakpoint("m")`
+		left: 32px;
+	`}
 
 	img {
 		width: 20px;
@@ -61,6 +65,16 @@ export default function About() {
 		const { target } = e
 		setBioLength(Number(target.value) ?? 1)
 	}
+
+	React.useEffect(() => {
+		if (typeof window !== "undefined") {
+			const mediaQuery = window.matchMedia("screen and (max-width: 768px)")
+
+			if (mediaQuery.matches) {
+				setBioLength(2)
+			}
+		}
+	}, [])
 
 	return (
 		<>
@@ -99,7 +113,7 @@ export default function About() {
 						zIndex="1"
 					>
 						<AboutContainer
-							py={{ _: 4, l: 5 }}
+							py={{ _: 10, l: 5 }}
 							flexDirection="column"
 							justifyContent="center"
 							alignItems="center"
@@ -138,19 +152,9 @@ export default function About() {
 									and/or listening to music, or watching a movie.
 								</Text>
 							)}
+							<VerbosityRegulator handleOnChange={adjustVerbosity} />
 						</AboutContainer>
-						<VerbosityRegulator handleOnChange={adjustVerbosity} />
 					</Flex>
-					{/* <ItsameContainer>
-						<Image
-							src="/itsame-polaroid.png"
-							alt="A picture of myself on one of my better days"
-							width="655"
-							height="799"
-							layout="responsive"
-							quality="100"
-						/>
-					</ItsameContainer> */}
 				</Flex>
 			</Flex>
 		</>

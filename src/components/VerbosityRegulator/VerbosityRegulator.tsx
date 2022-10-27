@@ -16,6 +16,7 @@ const VerbosityRegulatorStyled = styled.div`
 
 	${breakpoint("m")`
 		display: flex;
+        width: 100%;
 	`}
 `
 
