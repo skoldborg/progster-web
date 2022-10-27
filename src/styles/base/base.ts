@@ -39,25 +39,6 @@ export default css`
 		background-attachment: fixed;
 		color: ${({ theme }) => theme.colors.black};
 		height: 100%;
-
-		// &:after {
-		// 	content: "";
-		// 	display: block;
-		// 	width: 100%;
-		// 	height: 300%;
-		// 	position: absolute;
-		// 	top: 0;
-		// 	left: 0;
-		// 	background: radial-gradient(
-		// 		circle at -30%,
-		// 		#333,
-		// 		#333 20%,
-		// 		var(--red) 85%,
-		// 		var(--orange) 87%,
-		// 		#333 87%
-		// 	);
-		// 	z-index: -1;
-		// }
 	}
 
 	body > div:first-child,

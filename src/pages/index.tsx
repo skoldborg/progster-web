@@ -4,9 +4,10 @@ import { useRouter } from "next/router"
 import React from "react"
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
+import { SocialLink } from "../components/SocialLink"
 import { colors } from "../styles/constants"
 import { HeroGraphics } from "../components/HeroGraphics"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import { breakpoint } from "../styles"
 import { TRANSITION_CURVE } from "../styles/constants"
 
@@ -93,7 +94,7 @@ export default function Home() {
 					flexDirection="column"
 					w={1}
 					h="100vh"
-					maxw={240}
+					// maxw={240}
 					mx="auto"
 					style={{ overflowY: "hidden" }}
 				>
@@ -127,6 +128,26 @@ export default function Home() {
 									.
 									<br />I make internets.
 								</Text>
+								<Flex
+									alignItems="center"
+									columnGap={1}
+									justifyContent="flex-end"
+								>
+									<SocialLink
+										label="drop me an email"
+										type="email"
+										href="mailto:pierre@progster.se"
+										target="_blank"
+										rel="noopener noreferrer"
+									/>
+									<SocialLink
+										label="contact me on LinkedIn"
+										type="linkedin"
+										href="https://www.linkedin.com/in/pskoldborg/"
+										target="_blank"
+										rel="noopener noreferrer"
+									/>
+								</Flex>
 							</IntroInner>
 						</IntroContainer>
 					</Flex>

@@ -1,9 +1,12 @@
+import React from "react"
 import Head from "next/head"
 import Image from "next/image"
+import Link from "next/link"
 import styled, { css } from "styled-components"
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
-import { rollInLeft, fadeInUp, TRANSITION_CURVE } from "../styles"
+import { VerbosityRegulator } from "../components/VerbosityRegulator"
+import { rollInLeft, fadeInUp, TRANSITION_CURVE, breakpoint } from "../styles"
 
 export const fadeInContainer = css`
 	animation-name: ${fadeInUp};
@@ -37,33 +40,28 @@ const ItsameContainer = styled.figure`
 	${rollInImage}
 `
 
-const VerbosityRegulator = styled.input`
-	width: 100%;
-	-webkit-appearance: none;
-	background: transparent;
+const BackLink = styled.a`
+	display: flex;
+	align-items: center;
+	position: absolute;
+	left: 32px;
+	top: 32px;
 
-	::-webkit-slider-thumb {
-		-webkit-appearance: none;
-	}
-
-	::-ms-track {
-		width: 100%;
-		cursor: pointer;
-		background: transparent;
-		border-color: transparent;
-		color: transparent;
-	}
-
-	// Thumb
-	::-webkit-slider-thumb {
-		width: 24px;
-		height: 24px;
-		background-color: var(--white);
-		border-radius: 50%;
+	img {
+		width: 20px;
+		height: 20px;
+		margin-right: 12px;
 	}
 `
 
 export default function About() {
+	const [bioLength, setBioLength] = React.useState(1)
+
+	const adjustVerbosity = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const { target } = e
+		setBioLength(Number(target.value) ?? 1)
+	}
+
 	return (
 		<>
 			<Head>
@@ -74,7 +72,12 @@ export default function About() {
 				/>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Flex as="section" flexDirection="column" h={1} justifyContent="center">
+			<Flex
+				as="section"
+				flexDirection="column"
+				h={{ m: 1 }}
+				justifyContent="center"
+			>
 				<h1 className="visually-hidden">Progster - Freelance Web Developer</h1>
 				<Flex
 					flexDirection="column"
@@ -83,6 +86,12 @@ export default function About() {
 					mx="auto"
 					alignItems="center"
 				>
+					<Link href="/" passHref>
+						<BackLink>
+							<img src="/arrow-left.svg" alt="" />
+							Go back
+						</BackLink>
+					</Link>
 					<Flex
 						display="block"
 						m={{ _: 3, m: 5, l: 5 }}
@@ -90,40 +99,47 @@ export default function About() {
 						zIndex="1"
 					>
 						<AboutContainer
-							h={1}
+							py={{ _: 4, l: 5 }}
 							flexDirection="column"
 							justifyContent="center"
 							alignItems="center"
 							maxw={80}
 						>
 							<Text variant="preamble">
-								Hey! My name is Pierre Sköldborg. I'm a web developer from
-								Sweden living in Gothenburg.
+								Hey! My name is Pierre Sköldborg. I'm a freelance web developer
+								from Sweden living in Gothenburg.
 							</Text>
 
-							<Text variant="paragraph-20">
-								I've been making websites since stuff like HTML Frames were must
-								haves for every site, and CSS was the shiny new toy. A lot has
-								happened since then.
-							</Text>
+							{bioLength >= 2 && (
+								<>
+									<Text variant="paragraph-20">
+										I work across the full Javascript stack and have a
+										particular fondness for NodeJS and React.
+									</Text>
+									<Text variant="paragraph-20">
+										In addition to my work as a developer I also teach a course
+										in NodeJS and MongoDB (among other things) at{" "}
+										<a
+											href="https://www.yrgo.se/"
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Yrgo
+										</a>
+										.
+									</Text>
+								</>
+							)}
 
-							<Text variant="paragraph-20">
-								For my own part I took my web development hobby and turned it
-								into a profession back in 2013, and since then I've had the
-								privilege of working with a wide variety of clients and
-								agencies.
-							</Text>
+							{bioLength > 2 && (
+								<Text variant="paragraph-20">
+									When I'm not writing code I am most likely spending time with
+									my wife and two kids, watching Arsenal beat Spurs, playing
+									and/or listening to music, or watching a movie.
+								</Text>
+							)}
 						</AboutContainer>
-						<VerbosityRegulator
-							type="range"
-							id="verbosity-regulator"
-							name="verbosity-regulator"
-							min="1"
-							max="3"
-						/>
-						<label className="visually-hidden" htmlFor="verbosity-regulator">
-							Regulate the verbosity of my tired about text.
-						</label>
+						<VerbosityRegulator handleOnChange={adjustVerbosity} />
 					</Flex>
 					{/* <ItsameContainer>
 						<Image
