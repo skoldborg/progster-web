@@ -59,9 +59,6 @@ const HeroGraphics: React.FC<HeroGraphicsProps> = ({
 	isVisible,
 	parentRef,
 }) => {
-	const assetsPrefix =
-		process.env.NODE_ENV === "development" ? "" : "/progster-web"
-
 	const mouse = useMouse(parentRef, {
 		fps: 60,
 		enterDelay: 100,
@@ -93,7 +90,7 @@ const HeroGraphics: React.FC<HeroGraphicsProps> = ({
 						<g transform="translate(-1200,0)">
 							<HeroGraphicsBg
 								ref={starsBgRef}
-								href={`${assetsPrefix}/stars.jpg`}
+								href={`/stars.jpg`}
 								x="100%"
 								y="50"
 								width="1200"
