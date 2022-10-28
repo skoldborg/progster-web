@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://progster.se
+
+# Sitemaps
+Sitemap: https://progster.se/sitemap.xml
