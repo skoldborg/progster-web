@@ -39,7 +39,14 @@ const VerbosityRegulatorOption = styled.div`
 
 	label {
 		position: relative;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		row-gap: 12px;
+	}
 
+	.radio {
+		position: relative;
 		&:before {
 			content: "";
 			display: block;
@@ -64,7 +71,7 @@ const VerbosityRegulatorOption = styled.div`
 	}
 
 	input:checked + label {
-		&:after {
+		.radio:after {
 			transform: scale(1);
 		}
 	}
@@ -85,9 +92,8 @@ const VerbosityRegulator = ({ handleOnChange }: VerbosityRegulatorProps) => {
 						defaultChecked
 					/>
 					<label htmlFor="verbosity-short">
-						<span className="visually-hidden">
-							Keep your bios short and sweet please
-						</span>
+						<span className="radio"></span>
+						Short and sweet
 					</label>
 				</VerbosityRegulatorOption>
 				<VerbosityRegulatorOption>
@@ -99,7 +105,8 @@ const VerbosityRegulator = ({ handleOnChange }: VerbosityRegulatorProps) => {
 						onChange={(e) => handleOnChange(e)}
 					/>
 					<label htmlFor="verbosity-medium">
-						<span className="visually-hidden">I like my bios medium sized</span>
+						<span className="radio"></span>
+						Medium please
 					</label>
 				</VerbosityRegulatorOption>
 				<VerbosityRegulatorOption>
@@ -111,16 +118,9 @@ const VerbosityRegulator = ({ handleOnChange }: VerbosityRegulatorProps) => {
 						onChange={(e) => handleOnChange(e)}
 					/>
 					<label htmlFor="verbosity-long">
-						<span className="visually-hidden">Give me all you got!</span>
+						<span className="radio"></span>I want it all!
 					</label>
 				</VerbosityRegulatorOption>
-			</Flex>
-			<Flex justifyContent="space-between" w={1}>
-				<Text>Short and sweet</Text>
-
-				<Text>Medium please</Text>
-
-				<Text>I want it all!</Text>
 			</Flex>
 		</VerbosityRegulatorStyled>
 	)
