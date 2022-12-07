@@ -131,7 +131,7 @@ export default function Home() {
 								<Flex
 									alignItems="center"
 									columnGap={1}
-									justifyContent="flex-end"
+									justifyContent={{ _: "center", s: "flex-end" }}
 								>
 									<SocialLink
 										label="drop me an email"
