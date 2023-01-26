@@ -83,9 +83,8 @@ export default function Home() {
 				<title>Progster - Freelance Web Developer</title>
 				<meta
 					name="description"
-					content="I am a web developer with over 10 years experience in helping companies build fast, scalable, and accessible platforms for their digital prescence."
+					content="I am a web developer with over 10 years experience in helping clients build fast, scalable, and accessible platforms for their digital prescence."
 				/>
-				<link rel="icon" href="/favicon.ico" />
 			</Head>
 
 			<Flex as="section" display="block" ref={ref}>

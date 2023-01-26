@@ -80,12 +80,11 @@ export default function About() {
 	return (
 		<>
 			<Head>
-				<title>Progster - About</title>
+				<title>Progster - Freelance web developer - About</title>
 				<meta
 					name="description"
-					content="I am a web developer with over 10 years experience in helping companies build fast, scalable, and accessible platforms for their digital prescence."
+					content="My name is Pierre Sköldborg and I'm a freelance web developer from Gothenburg. I work across the full Javascript stack and have a particular fondness for React and NodeJS."
 				/>
-				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Flex
 				as="section"
