@@ -1,13 +1,47 @@
 import React from "react"
 import Head from "next/head"
 import Link from "next/link"
-import styled, { css } from "styled-components"
+import styled, { css, keyframes } from "styled-components"
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
 import { VerbosityRegulator } from "../components/VerbosityRegulator"
 import { rollInLeft, fadeInUp, TRANSITION_CURVE, breakpoint } from "../styles"
 
-export const fadeInContainer = css`
+const moveBackLinkKeyframes = keyframes`
+    0% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    5% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    30% {
+        transform: translateX(-24px);
+        opacity: 0;
+    }
+
+    60% {
+        transform: translateX(80px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+`
+
+const movePrevBtnArrow = css`
+	animation-name: ${moveBackLinkKeyframes};
+	animation-timing-function: cubic-bezier(0.55, 0.003, 0.164, 0.991);
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;
+`
+
+const fadeInContainer = css`
 	animation-name: ${fadeInUp};
 	animation-timing-function: ${TRANSITION_CURVE};
 	animation-duration: 1s;
@@ -19,33 +53,19 @@ const AboutContainer = styled(Flex)`
 	${fadeInContainer}
 `
 
-const rollInImage = css`
-	animation-name: ${rollInLeft};
-	animation-timing-function: ${TRANSITION_CURVE};
-	animation-duration: 1s;
-	animation-delay: 0.8s;
-	animation-fill-mode: both;
-`
-
-const ItsameContainer = styled.figure`
-	position: absolute;
-	right: -40px;
-	top: 60%;
-	transform: translateY(-50%);
-	width: 320px;
-	height: auto;
-	z-index: 0;
-
-	${rollInImage}
-`
-
 const BackLink = styled.a`
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	position: absolute;
 	left: 24px;
 	top: 32px;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border: 2px solid var(--black);
 	font-size: 18px;
+	overflow: hidden;
 	z-index: 2;
 
 	${breakpoint("m")`
@@ -55,7 +75,12 @@ const BackLink = styled.a`
 	svg {
 		width: 20px;
 		height: 20px;
-		margin-right: 12px;
+	}
+
+	&:hover {
+		svg {
+			${movePrevBtnArrow};
+		}
 	}
 `
 
@@ -101,11 +126,14 @@ export default function About() {
 					alignItems="center"
 				>
 					<Link href="/" passHref>
-						<BackLink>
-							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+						<BackLink aria-label="Navigate back to startpage">
+							<svg
+								xmlns="http://www.w3.org/2000/svg"
+								viewBox="0 0 448 512"
+								aria-hidden="true"
+							>
 								<path d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l160 160c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.2 288 416 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-306.7 0L214.6 118.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-160 160z" />
 							</svg>
-							Go back
 						</BackLink>
 					</Link>
 					<Flex
