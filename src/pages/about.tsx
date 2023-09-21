@@ -5,7 +5,7 @@ import styled, { css, keyframes } from "styled-components"
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
 import { VerbosityRegulator } from "../components/VerbosityRegulator"
-import { rollInLeft, fadeInUp, TRANSITION_CURVE, breakpoint } from "../styles"
+import { fadeInUp, TRANSITION_CURVE, breakpoint } from "../styles"
 
 const moveBackLinkKeyframes = keyframes`
     0% {
