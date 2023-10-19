@@ -158,11 +158,15 @@ export default function About() {
 								<>
 									<Text variant="paragraph-20">
 										I work across the full Javascript stack and have a
-										particular fondness for NodeJS and React.
+										particular fondness for React, NodeJS, and GraphQL. I have
+										experience in working on large-scale, complex projects with
+										many players involved, as well as small startup teams.
 									</Text>
 									<Text variant="paragraph-20">
-										In addition to my work as a developer I also teach a course
-										in NodeJS and MongoDB (among other things) at{" "}
+										Beyond the pure programming aspect of my work, I am
+										passionate about knowledge sharing and mentoring. Among my
+										various activities, I have taught courses in NodeJS,
+										MongoDB, and GraphQL at
 										<a
 											href="https://www.yrgo.se/"
 											target="_blank"
@@ -178,7 +182,7 @@ export default function About() {
 							{bioLength > 2 && (
 								<Text variant="paragraph-20">
 									When I'm not writing code I am most likely spending time with
-									my wife and two kids, watching Arsenal beat Spurs, playing
+									my wife and two kids, watching Arsenal beat Sp*rs, playing
 									and/or listening to music, or watching a movie.
 								</Text>
 							)}
