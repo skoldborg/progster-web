@@ -1,45 +1,12 @@
 import React from "react"
 import Head from "next/head"
 import Link from "next/link"
-import styled, { css, keyframes } from "styled-components"
+import styled, { css } from "styled-components"
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
 import { VerbosityRegulator } from "../components/VerbosityRegulator"
-import { fadeInUp, TRANSITION_CURVE, breakpoint } from "../styles"
-
-const moveBackLinkKeyframes = keyframes`
-    0% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-
-    5% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-
-    30% {
-        transform: translateX(-24px);
-        opacity: 0;
-    }
-
-    60% {
-        transform: translateX(80px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-`
-
-const movePrevBtnArrow = css`
-	animation-name: ${moveBackLinkKeyframes};
-	animation-timing-function: cubic-bezier(0.55, 0.003, 0.164, 0.991);
-	animation-duration: 0.4s;
-	animation-fill-mode: forwards;
-`
+import { BackLink } from "../components/BackLink/BackLink"
+import { fadeInUp, TRANSITION_CURVE } from "../styles"
 
 const fadeInContainer = css`
 	animation-name: ${fadeInUp};
@@ -51,37 +18,6 @@ const fadeInContainer = css`
 
 const AboutContainer = styled(Flex)`
 	${fadeInContainer}
-`
-
-const BackLink = styled.a`
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	position: absolute;
-	left: 24px;
-	top: 32px;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	border: 2px solid var(--black);
-	font-size: 18px;
-	overflow: hidden;
-	z-index: 2;
-
-	${breakpoint("m")`
-		left: 32px;
-	`}
-
-	svg {
-		width: 20px;
-		height: 20px;
-	}
-
-	&:hover {
-		svg {
-			${movePrevBtnArrow};
-		}
-	}
 `
 
 export default function About() {
@@ -166,7 +102,7 @@ export default function About() {
 										Beyond the pure programming aspect of my work, I am
 										passionate about knowledge sharing and mentoring. Among my
 										various activities, I have taught courses in NodeJS,
-										MongoDB, and GraphQL at
+										MongoDB, and GraphQL at&nbspc;
 										<a
 											href="https://www.yrgo.se/"
 											target="_blank"

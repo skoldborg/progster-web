@@ -125,7 +125,24 @@ export default function Home() {
 										</a>
 									</Link>
 									.
-									<br />I make internets.
+									<br />I make&nbsp;
+									<Link href="/projects">
+										<a
+											onClick={(e) => {
+												e.preventDefault()
+
+												setHeroGraphicsIsVisible(false)
+												setIntroTextIsVisible(false)
+
+												setTimeout(() => {
+													router.push("/projects")
+												}, 1200)
+											}}
+										>
+											internets
+										</a>
+									</Link>
+									.
 								</Text>
 								<Flex
 									alignItems="center"
