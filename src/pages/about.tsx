@@ -102,7 +102,7 @@ export default function About() {
 										Beyond the pure programming aspect of my work, I am
 										passionate about knowledge sharing and mentoring. Among my
 										various activities, I have taught courses in NodeJS,
-										MongoDB, and GraphQL at&nbspc;
+										MongoDB, and GraphQL at&nbsp;
 										<a
 											href="https://www.yrgo.se/"
 											target="_blank"
