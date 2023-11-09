@@ -22,6 +22,7 @@ export interface TextProps
 	id?: string
 	variant?: Variants
 	as?: any
+	href?: string
 	truncate?: ResponsiveValue<
 		"singleLine" | "twoLine" | "threeLine" | "fourLine" | "none"
 	>

@@ -3,6 +3,19 @@ import Link from "next/link"
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
 import { BackLink } from "../components/BackLink/BackLink"
+import { scale } from "../styles"
+import styled from "styled-components"
+
+const ProjectLink = styled.a`
+	font-size: ${scale.px(4)};
+	font-style: italic;
+	text-decoration: none;
+	margin-bottom: ${scale.px(1)};
+
+	&:hover {
+		text-decoration: underline;
+	}
+`
 
 export default function Projects() {
 	return (
@@ -45,7 +58,74 @@ export default function Projects() {
 						position="relative"
 						zIndex="1"
 					>
-						<Text as="p">Hello</Text>
+						<Text
+							as="h2"
+							textTransform="uppercase"
+							textAlign="center"
+							textDecoration="underline"
+							mb={6}
+						>
+							Selected Projects
+						</Text>
+
+						<Flex as="ul" alignItems="center" flexDirection="column">
+							<Flex as="li" flexDirection="column" alignItems="center" mb={4}>
+								<ProjectLink
+									href="https://folkhalsomyndigheten.se"
+									target="_blank"
+									rel="noopenen noreferrer"
+								>
+									Public Health Agency of Sweden
+								</ProjectLink>
+								<Text mb={1}>2023 &ndash; Lead Front End</Text>
+								<Text>React | Typescript | Accessibility | Storybook</Text>
+							</Flex>
+
+							<Flex as="li" flexDirection="column" alignItems="center" mb={4}>
+								<ProjectLink
+									href="https://folkhalsomyndigheten.se"
+									target="_blank"
+									rel="noopenen noreferrer"
+								>
+									GöteborgsOperan
+								</ProjectLink>
+								<Text mb={1}>2022 &ndash; Lead Front End</Text>
+								<Text>
+									React | NodeJS | Typescript | GraphQL | Docker | Azure DevOps
+									| Accessibility | Storybook
+								</Text>
+							</Flex>
+
+							<Flex as="li" flexDirection="column" alignItems="center" mb={4}>
+								<ProjectLink
+									href="https://folkhalsomyndigheten.se"
+									target="_blank"
+									rel="noopenen noreferrer"
+								>
+									Capio
+								</ProjectLink>
+								<Text mb={1}>2021 &ndash; Lead Front End</Text>
+								<Text>
+									React | Typescript | React Query | Styled Components |
+									Storybook
+								</Text>
+							</Flex>
+
+							<Flex as="li" flexDirection="column" alignItems="center" mb={4}>
+								<ProjectLink
+									href="https://folkhalsomyndigheten.se"
+									target="_blank"
+									rel="noopenen noreferrer"
+								>
+									SDG Impact Assessment Tool
+								</ProjectLink>
+								<Text mb={1}>2021 &ndash; Lead Developer</Text>
+								<Text>
+									React | NodeJS | Prismic | Typescript | MongoDB | GraphQL |
+									Auth0
+								</Text>
+							</Flex>
+						</Flex>
 					</Flex>
 				</Flex>
 			</Flex>
