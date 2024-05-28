@@ -124,7 +124,6 @@ export default function Home() {
 											Pierre Sköldborg
 										</a>
 									</Link>
-									.
 									<br />I make&nbsp;
 									<Link href="/projects">
 										<a
@@ -139,7 +138,7 @@ export default function Home() {
 												}, 1200)
 											}}
 										>
-											internets.
+											internets
 										</a>
 									</Link>
 								</Text>
