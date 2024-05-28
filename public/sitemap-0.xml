@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="https://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="https://www.w3.org/1999/xhtml" xmlns:mobile="https://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="https://www.google.com/schemas/sitemap-image/1.1" xmlns:video="https://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://progster.se</loc><lastmod>2024-05-28T07:33:28.779Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://progster.se/about</loc><lastmod>2024-05-28T07:33:28.779Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
-<url><loc>https://progster.se/projects</loc><lastmod>2024-05-28T07:33:28.779Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://progster.se</loc><lastmod>2024-05-28T08:05:41.198Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://progster.se/about</loc><lastmod>2024-05-28T08:05:41.198Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>https://progster.se/projects</loc><lastmod>2024-05-28T08:05:41.198Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
 </urlset>
