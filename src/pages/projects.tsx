@@ -8,7 +8,6 @@ import styled from "styled-components"
 
 const ProjectLink = styled.a`
 	font-size: ${scale.px(4)};
-	font-style: italic;
 	text-decoration: none;
 	margin-bottom: ${scale.px(1)};
 
