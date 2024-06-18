@@ -3,8 +3,20 @@ import Link from "next/link"
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
 import { BackLink } from "../components/BackLink/BackLink"
-import { scale } from "../styles"
-import styled from "styled-components"
+import { scale, fadeInUp, TRANSITION_CURVE } from "../styles"
+import styled, { css } from "styled-components"
+
+const fadeInContainer = css`
+	animation-name: ${fadeInUp};
+	animation-timing-function: ${TRANSITION_CURVE};
+	animation-duration: 1s;
+	animation-delay: 0;
+	animation-fill-mode: both;
+`
+
+const ProjectsContainer = styled(Flex)`
+	${fadeInContainer}
+`
 
 const ProjectLink = styled.a`
 	font-size: ${scale.px(4)};
@@ -51,7 +63,7 @@ export default function Projects() {
 							</svg>
 						</BackLink>
 					</Link>
-					<Flex
+					<ProjectsContainer
 						display="block"
 						m={{ _: 3, m: 5, l: 5 }}
 						position="relative"
@@ -125,7 +137,7 @@ export default function Projects() {
 								</Text>
 							</Flex>
 						</Flex>
-					</Flex>
+					</ProjectsContainer>
 				</Flex>
 			</Flex>
 		</>
