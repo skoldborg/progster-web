@@ -94,7 +94,7 @@ export default function Projects() {
 
 							<Flex as="li" flexDirection="column" alignItems="center" mb={4}>
 								<ProjectLink
-									href="https://folkhalsomyndigheten.se"
+									href="https://opera.se"
 									target="_blank"
 									rel="noopenen noreferrer"
 								>
@@ -109,7 +109,7 @@ export default function Projects() {
 
 							<Flex as="li" flexDirection="column" alignItems="center" mb={4}>
 								<ProjectLink
-									href="https://folkhalsomyndigheten.se"
+									href="https://capio.se"
 									target="_blank"
 									rel="noopenen noreferrer"
 								>
@@ -124,7 +124,7 @@ export default function Projects() {
 
 							<Flex as="li" flexDirection="column" alignItems="center" mb={4}>
 								<ProjectLink
-									href="https://folkhalsomyndigheten.se"
+									href="https://sdgimpactassessmenttool.org/"
 									target="_blank"
 									rel="noopenen noreferrer"
 								>
