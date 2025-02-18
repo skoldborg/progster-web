@@ -1,9 +1,10 @@
 import Head from "next/head"
 import Link from "next/link"
+
 import { Flex } from "../components/Flex"
 import { Text } from "../components/Text"
 import { BackLink } from "../components/BackLink/BackLink"
-import { scale, fadeInUp, TRANSITION_CURVE } from "../styles"
+import { scale, fadeInUp, TRANSITION_CURVE, breakpoint } from "../styles"
 import styled, { css } from "styled-components"
 
 const fadeInContainer = css`
@@ -19,9 +20,15 @@ const ProjectsContainer = styled(Flex)`
 `
 
 const ProjectLink = styled.a`
-	font-size: ${scale.px(4)};
+	font-size: ${scale.px(3)};
+	text-align: center;
 	text-decoration: none;
 	margin-bottom: ${scale.px(1)};
+
+	${breakpoint("l")`
+		font-size: ${scale.px(4)};
+		text-align: initial;
+  `}
 
 	&:hover {
 		text-decoration: underline;
@@ -82,26 +89,16 @@ export default function Projects() {
 						<Flex as="ul" alignItems="center" flexDirection="column">
 							<Flex as="li" flexDirection="column" alignItems="center" mb={4}>
 								<ProjectLink
-									href="https://folkhalsomyndigheten.se"
-									target="_blank"
-									rel="noopenen noreferrer"
-								>
-									Public Health Agency of Sweden
-								</ProjectLink>
-								<Text mb={1}>2023 &ndash; Lead Front End</Text>
-								<Text>React | Typescript | Accessibility | Storybook</Text>
-							</Flex>
-
-							<Flex as="li" flexDirection="column" alignItems="center" mb={4}>
-								<ProjectLink
 									href="https://opera.se"
 									target="_blank"
 									rel="noopenen noreferrer"
 								>
 									GöteborgsOperan
 								</ProjectLink>
-								<Text mb={1}>2022 &ndash; Lead Front End</Text>
-								<Text>
+								<Text mb={{ _: 2, l: 1 }} fontWeight="bold">
+									Lead Front End
+								</Text>
+								<Text textAlign={{ _: "center", l: "initial" }}>
 									React | NodeJS | Typescript | GraphQL | Docker | Azure DevOps
 									| Accessibility | Storybook
 								</Text>
@@ -109,16 +106,17 @@ export default function Projects() {
 
 							<Flex as="li" flexDirection="column" alignItems="center" mb={4}>
 								<ProjectLink
-									href="https://capio.se"
+									href="https://folkhalsomyndigheten.se"
 									target="_blank"
 									rel="noopenen noreferrer"
 								>
-									Capio
+									The Public Health Agency of Sweden
 								</ProjectLink>
-								<Text mb={1}>2021 &ndash; Lead Front End</Text>
-								<Text>
-									React | Typescript | React Query | Styled Components |
-									Storybook
+								<Text mb={1} fontWeight="bold">
+									Lead Front End
+								</Text>
+								<Text textAlign={{ _: "center", l: "initial" }}>
+									React | Typescript | Accessibility | Storybook
 								</Text>
 							</Flex>
 
@@ -130,10 +128,28 @@ export default function Projects() {
 								>
 									SDG Impact Assessment Tool
 								</ProjectLink>
-								<Text mb={1}>2021 &ndash; Lead Developer</Text>
-								<Text>
-									React | NodeJS | Prismic | Typescript | MongoDB | GraphQL |
-									Auth0
+								<Text mb={{ _: 2, l: 1 }} fontWeight="bold">
+									Lead Developer
+								</Text>
+								<Text textAlign={{ _: "center", l: "initial" }}>
+									Next.js | Prismic | Typescript | MongoDB | GraphQL | Auth0
+								</Text>
+							</Flex>
+
+							<Flex as="li" flexDirection="column" alignItems="center" mb={4}>
+								<ProjectLink
+									href="https://capio.se"
+									target="_blank"
+									rel="noopenen noreferrer"
+								>
+									Capio
+								</ProjectLink>
+								<Text mb={{ _: 2, l: 1 }} fontWeight="bold">
+									Lead Front End
+								</Text>
+								<Text textAlign={{ _: "center", l: "initial" }}>
+									React | Typescript | React Query | Styled Components |
+									Storybook
 								</Text>
 							</Flex>
 						</Flex>
