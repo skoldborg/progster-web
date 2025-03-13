@@ -1,0 +1,135 @@
+---
+import cx from 'classnames';
+
+import { HeroGraphics } from '../components/HeroGraphics/HeroGraphics';
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+	<section class="wrapper">
+		<h1 class="visually-hidden">Progster - Freelance Web Developer</h1>
+
+		<div class="flex flex-col h-screen mx-auto overflow-y-hidden">
+			<div class="h-full relative m-3 md:m-12">
+				<HeroGraphics />
+				<div
+					id="intro-text"
+					class={cx(
+						'intro-text',
+						'flex absolute bottom-0 left-0 w-full h-full opacity-0 lg:min-h-[30vw]',
+						'transition-all duration-100 ease-in-expo delay-200'
+					)}
+				>
+					<div
+						class={cx(
+							'absolute right-0 bottom-0 text-center sm:text-right text-white w-full max-w-xl',
+							'top-[max(360px,55vh,110vw)] md:top-auto lg:right-[20%]'
+						)}
+					>
+						<p class="text-2xl">
+							Hi, I'm <a href="/about" class="underline" id="link-about"
+								>Pierre Sköldborg</a
+							><br />
+							I make <a href="/projects" class="underline" id="link-projects"
+								>internets</a
+							>
+						</p>
+
+						<div
+							class="flex items-center gap-2 justify-center sm:justify-end mt-2"
+						>
+							<a
+								href="mailto:pierre@progster.se"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="Drop me an email"
+							>
+								<img src="/email.svg" alt="" class="w-10" />
+							</a>
+							<a
+								href="https://www.linkedin.com/in/pskoldborg/"
+								target="_blank"
+								rel="noopener noreferrer"
+								aria-label="Connect with me on LinkedIn"
+							>
+								<img src="/linkedin.svg" alt="" class="w-[30px]" />
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.wrapper {
+		background: linear-gradient(
+			to bottom right,
+			#fe9908 10%,
+			#fe7a0b 30%,
+			#fa6914 50%,
+			#e55f17 80%,
+			#c15016 100%
+		);
+	}
+
+	.intro-text {
+		transform: translateY(64px);
+	}
+
+	.reveal-intro-text {
+		opacity: 1;
+		transform: translateY(0);
+		transition: all 1s cubic-bezier(0.79, 0.3, 0, 0.96);
+	}
+</style>
+
+<script>
+	import { navigate } from 'astro:transitions/client';
+
+	const heroGraphicEl = document.getElementById('hero-graphic');
+	const introTextEl = document.getElementById('intro-text');
+
+	function animateHero() {
+		heroGraphicEl?.classList.remove('reveal');
+		introTextEl?.classList.remove('reveal-intro-text');
+
+		setTimeout(() => {
+			heroGraphicEl?.classList.add('reveal');
+		}, 0);
+
+		setTimeout(() => {
+			introTextEl?.classList.add('reveal-intro-text');
+		}, 1500);
+	}
+
+	document.addEventListener('astro:page-load', () => {
+		animateHero();
+	});
+
+	const linkAbout = document.getElementById('link-about');
+	const linkProjects = document.getElementById('link-projects');
+
+	linkAbout?.addEventListener('click', (e) => {
+		e.preventDefault();
+
+		heroGraphicEl?.classList.remove('reveal');
+		introTextEl?.classList.remove('reveal-intro-text');
+
+		setTimeout(() => {
+			navigate('/about');
+		}, 1200);
+	});
+
+	linkProjects?.addEventListener('click', (e) => {
+		e.preventDefault();
+
+		heroGraphicEl?.classList.remove('reveal');
+		introTextEl?.classList.remove('reveal-intro-text');
+
+		setTimeout(() => {
+			navigate('/projects');
+		}, 1200);
+	});
+</script>

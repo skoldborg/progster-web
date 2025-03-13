@@ -1,0 +1,64 @@
+---
+import { MdArrowOutward } from 'react-icons/md';
+import cx from 'classnames';
+
+import Tag from './Tag.astro';
+export interface Props {
+	title: string;
+	role: string;
+	url: string;
+	tech: string[];
+	style: astroHTML.JSX.CSSProperties;
+}
+
+const { title, role, tech, url, style } = Astro.props;
+---
+
+<div class="container">
+	<a
+		href={url}
+		class={cx(
+			'project-card relative py-4 pl-4 pr-12 rounded-xl bg-orange-dark flex flex-col h-full',
+			'shadow-[0px_2px_10px_0px_rgba(0,0,0,0)] hover:shadow-[0px_2px_10px_0px_rgba(0,0,0,0.1)]'
+		)}
+		style={style}
+	>
+		<MdArrowOutward className="absolute top-[10px] right-2" size="30" />
+		<div class="flex flex-wrap gap-1 mb-4">
+			{tech.map((t) => <Tag label={t} />)}
+		</div>
+		<div class="mt-auto">
+			<h2 class="text-xl font-bold">{title}</h2>
+			<h3>{role}</h3>
+		</div>
+	</a>
+</div>
+
+<style>
+	@keyframes fadeInUp {
+		0% {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.project-card {
+		opacity: 0;
+		animation: fadeInUp 0.65s ease forwards;
+		transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	.container {
+		transform: translateY(0);
+		transform: scale(1) translateZ(0);
+		transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+		will-change: transform;
+	}
+	.container:hover {
+		transform: translateY(-2px);
+	}
+</style>

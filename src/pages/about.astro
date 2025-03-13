@@ -1,0 +1,97 @@
+---
+import cx from 'classnames';
+import { MdKeyboardDoubleArrowLeft } from 'react-icons/md';
+
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout subtitle="About">
+	<section class="wrapper h-full w-full">
+		<div class="flex flex-col md:h-full">
+			<div class="flex flex-col w-full mx-auto">
+				<div class="m-6 md:m-10 z-10">
+					<div
+						class={cx(
+							'fade-in-container',
+							'flex flex-col max-w-4xl',
+							'py-20 lg:py-10'
+						)}
+					>
+						<img src="/me3.jpg" class="max-w-140 rounded-2xl mb-10" />
+						<p class="font-bold mb-4 text-lg md:text-2xl">
+							Hi! <br /> My name is Pierre Sköldborg. I'm a freelance web developer
+							from Sweden living in Gothenburg.
+						</p>
+
+						<p class="mb-4 md:text-lg">
+							I work across the full JavaScript stack and have a particular
+							fondness for React, Node.js, and accessibility. With over ten
+							years of experience, I've worked on both large-scale, complex
+							projects involving many stakeholders and in small startup teams.
+						</p>
+
+						<p class="mb-4 md:text-lg">
+							Beyond the pure programming aspect of my work, I am passionate
+							about knowledge sharing and mentoring. Among my various
+							activities, I have taught courses in NodeJS, MongoDB, and GraphQL
+							at <a
+								href="https://www.yrgo.se/"
+								target="_blank"
+								rel="noopener noreferrer">Yrgo</a
+							>.
+						</p>
+
+						<p class="mb-4 md:text-lg">
+							I am a highly motivated, sociable, and well-organized developer
+							and my focus is always on delivering solutions that are intuitive
+							and accessible to the end user as well as robust and easy to
+							understand for my fellow developers.
+						</p>
+
+						<a
+							href="/"
+							class="flex underline items-center gap-2 md:text-lg mt-4"
+						>
+							<MdKeyboardDoubleArrowLeft />
+							Go back
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	@keyframes fadeInUp {
+		0% {
+			opacity: 0;
+			transform: translateY(48px);
+		}
+		60% {
+			transform: translateY(0);
+		}
+		100% {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+
+	.fade-in-container {
+		animation-name: fadeInUp;
+		animation-timing-function: cubic-bezier(0.79, 0.3, 0, 0.96);
+		animation-duration: 1s;
+		animation-delay: 0;
+		animation-fill-mode: both;
+	}
+
+	.wrapper {
+		background: linear-gradient(
+			to bottom right,
+			#fe9908 50%,
+			#e55f17 50%,
+			#e55f17 80%,
+			#fe9908 80%
+		);
+	}
+</style>

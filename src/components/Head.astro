@@ -1,0 +1,27 @@
+---
+export interface HeadProps {
+	title?: string;
+	subtitle?: string;
+	description?: string;
+}
+
+export interface Props extends HeadProps {}
+
+const {
+	title = 'Progster - Freelance Web Developer',
+	subtitle,
+	description = 'I am a web developer with over 10 years experience in helping clients build fast, scalable, and accessible platforms for their digital prescence.',
+} = Astro.props;
+---
+
+<title>{`${title} - ${subtitle}`}</title>
+
+<meta name="description" content={description} />
+<meta property="og:url" content="https://progster.se" />
+<meta property="og:title" content={`${title} - ${subtitle}`} />
+<meta property="og:description" content={description} />
+
+<meta property="og:title" content={title} />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://progster.se/" />
+<meta property="og:description" content={description} />
