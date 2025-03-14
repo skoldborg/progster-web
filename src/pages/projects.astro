@@ -57,20 +57,22 @@ const projects = [
 		<div class="banner"></div>
 		<div class="relative flex flex-col md:h-full z-10">
 			<div class="mx-6 md:mx-10 mt-20 md:mt-40 max-w-6xl">
-				<h1 class="font-bold text-3xl md:text-5xl uppercase mb-10 md:mb-20">
-					Selected works
-				</h1>
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-					{
-						projects.map((p, i) => (
-							<ProjectCard
-								{...p}
-								style={{
-									animationDelay: `${i * 0.15}s`,
-								}}
-							/>
-						))
-					}
+				<div id="projects-container" class="projects-container">
+					<h1 class="font-bold text-3xl md:text-5xl uppercase mb-10 md:mb-20">
+						Selected works
+					</h1>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+						{
+							projects.map((p, i) => (
+								<ProjectCard
+									{...p}
+									style={{
+										animationDelay: `${i * 0.15}s`,
+									}}
+								/>
+							))
+						}
+					</div>
 				</div>
 				<a
 					id="link-back"
@@ -85,9 +87,15 @@ const projects = [
 	</section>
 </Layout>
 
-<style lang="scss">
+<style>
 	.wrapper {
 		background: #fe9908;
+	}
+
+	.projects-container.hide {
+		transition: all 800ms cubic-bezier(0.79, 0.3, 0, 0.96);
+		opacity: 0;
+		transform: translateY(24px);
 	}
 </style>
 
@@ -95,6 +103,7 @@ const projects = [
 	import { navigate } from 'astro:transitions/client';
 
 	const graphicsEl = document.getElementById('banner-graphic');
+	const projectsContainer = document.getElementById('projects-container');
 	const linkBack = document.getElementById('link-back');
 
 	function animateGraphic() {
@@ -111,6 +120,7 @@ const projects = [
 		e.preventDefault();
 
 		graphicsEl?.classList.remove('reveal');
+		projectsContainer?.classList.add('hide');
 
 		setTimeout(() => {
 			navigate('/');
