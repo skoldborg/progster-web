@@ -17,6 +17,8 @@ const { title, role, tech, url, style } = Astro.props;
 <div class="container">
 	<a
 		href={url}
+		target="_blank"
+		rel="noreferrer noopener"
 		class={cx(
 			'project-card relative py-4 pl-4 pr-12 rounded-xl bg-orange-dark flex flex-col h-full',
 			'shadow-[0px_2px_10px_0px_rgba(0,0,0,0)] hover:shadow-[0px_2px_10px_0px_rgba(0,0,0,0.1)]'
