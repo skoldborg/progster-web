@@ -16,8 +16,8 @@ import Layout from '../layouts/Layout.astro';
 					id="intro-text"
 					class={cx(
 						'intro-text',
-						'flex absolute bottom-0 left-0 w-full h-full opacity-0 lg:min-h-[30vw]',
-						'transition-all duration-100 ease-in-expo delay-200'
+						'flex absolute bottom-0 left-0 w-full h-full lg:min-h-[30vw]',
+						'opacity-0 transition-all duration-100 ease-in-expo delay-200'
 					)}
 				>
 					<div
@@ -62,7 +62,7 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 </Layout>
 
-<style>
+<style lang="scss">
 	.wrapper {
 		background: linear-gradient(
 			to bottom right,
@@ -76,12 +76,12 @@ import Layout from '../layouts/Layout.astro';
 
 	.intro-text {
 		transform: translateY(64px);
-	}
 
-	.reveal-intro-text {
-		opacity: 1;
-		transform: translateY(0);
-		transition: all 1s cubic-bezier(0.79, 0.3, 0, 0.96);
+		&.reveal {
+			opacity: 1;
+			transform: translateY(0);
+			transition: all 1s cubic-bezier(0.79, 0.3, 0, 0.96);
+		}
 	}
 </style>
 
@@ -93,14 +93,12 @@ import Layout from '../layouts/Layout.astro';
 
 	function animateHero() {
 		heroGraphicEl?.classList.remove('reveal');
-		introTextEl?.classList.remove('reveal-intro-text');
+		introTextEl?.classList.remove('reveal');
+
+		heroGraphicEl?.classList.add('reveal');
 
 		setTimeout(() => {
-			heroGraphicEl?.classList.add('reveal');
-		}, 0);
-
-		setTimeout(() => {
-			introTextEl?.classList.add('reveal-intro-text');
+			introTextEl?.classList.add('reveal');
 		}, 1500);
 	}
 
@@ -115,7 +113,7 @@ import Layout from '../layouts/Layout.astro';
 		e.preventDefault();
 
 		heroGraphicEl?.classList.remove('reveal');
-		introTextEl?.classList.remove('reveal-intro-text');
+		introTextEl?.classList.remove('reveal');
 
 		setTimeout(() => {
 			navigate('/about');
@@ -126,7 +124,7 @@ import Layout from '../layouts/Layout.astro';
 		e.preventDefault();
 
 		heroGraphicEl?.classList.remove('reveal');
-		introTextEl?.classList.remove('reveal-intro-text');
+		introTextEl?.classList.remove('reveal');
 
 		setTimeout(() => {
 			navigate('/projects');

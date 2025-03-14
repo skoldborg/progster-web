@@ -3,18 +3,22 @@ import cx from 'classnames';
 import { MdKeyboardDoubleArrowLeft } from 'react-icons/md';
 
 import Layout from '../layouts/Layout.astro';
+import BannerGraphic from '../components/BannerGraphic.astro';
 ---
 
 <Layout subtitle="About">
-	<section class="wrapper h-full w-full">
+	<section class="wrapper relative h-full w-full overflow-hidden">
+		<BannerGraphic />
 		<div class="flex flex-col md:h-full">
 			<div class="flex flex-col w-full mx-auto">
 				<div class="m-6 md:m-10 z-10">
 					<div
+						id="about-container"
 						class={cx(
-							'fade-in-container',
+							'about-container',
 							'flex flex-col max-w-4xl',
-							'py-20 lg:py-10'
+							'py-20 lg:py-10',
+							'opacity-0 transition-all duration-100 ease-in-expo delay-200'
 						)}
 					>
 						<img src="/me3.jpg" class="max-w-140 rounded-2xl mb-10" />
@@ -49,6 +53,7 @@ import Layout from '../layouts/Layout.astro';
 						</p>
 
 						<a
+							id="link-back"
 							href="/"
 							class="flex underline items-center gap-2 md:text-lg mt-4"
 						>
@@ -62,36 +67,63 @@ import Layout from '../layouts/Layout.astro';
 	</section>
 </Layout>
 
-<style>
-	@keyframes fadeInUp {
-		0% {
-			opacity: 0;
-			transform: translateY(48px);
-		}
-		60% {
-			transform: translateY(0);
-		}
-		100% {
-			transform: translateY(0);
-			opacity: 1;
-		}
-	}
-
+<style lang="scss">
 	.fade-in-container {
 		animation-name: fadeInUp;
 		animation-timing-function: cubic-bezier(0.79, 0.3, 0, 0.96);
 		animation-duration: 1s;
 		animation-delay: 0;
 		animation-fill-mode: both;
+		animation-delay: 400ms;
 	}
 
 	.wrapper {
-		background: linear-gradient(
-			to bottom right,
-			#fe9908 50%,
-			#e55f17 50%,
-			#e55f17 80%,
-			#fe9908 80%
-		);
+		background: #fe9908;
+	}
+
+	.about-container {
+		transform: translateY(24px);
+		transition: all 800ms cubic-bezier(0.79, 0.3, 0, 0.96);
+
+		&.reveal {
+			opacity: 1;
+			transform: translateY(0);
+			transition: all 500ms ease-in-out;
+		}
 	}
 </style>
+
+<script>
+	import { navigate } from 'astro:transitions/client';
+
+	const graphicsEl = document.getElementById('banner-graphic');
+	const aboutContainer = document.getElementById('about-container');
+	const linkBack = document.getElementById('link-back');
+
+	function animateGraphic() {
+		if (graphicsEl && aboutContainer) {
+			graphicsEl.classList.remove('reveal');
+			aboutContainer.classList.remove('reveal');
+
+			graphicsEl.classList.add('reveal');
+			console.log(aboutContainer);
+
+			setTimeout(() => {
+				aboutContainer.classList.add('reveal');
+			}, 700);
+		}
+	}
+
+	animateGraphic();
+
+	linkBack?.addEventListener('click', (e) => {
+		e.preventDefault();
+
+		graphicsEl?.classList.remove('reveal');
+		aboutContainer?.classList.remove('reveal');
+
+		setTimeout(() => {
+			navigate('/');
+		}, 1200);
+	});
+</script>
