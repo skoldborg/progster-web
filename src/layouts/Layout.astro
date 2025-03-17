@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from 'astro:transitions';
 import Head, { type HeadProps } from '../components/Head.astro';
 import '../styles/global.css';
 
@@ -15,6 +16,7 @@ const { ...props } = Astro.props;
 			content="width=device-width, initial-scale=1, shrink-to-fit=no"
 		/>
 		<Head {...props} />
+		<ClientRouter />
 
 		<!-- Google Fonts - Preloaded -->
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
