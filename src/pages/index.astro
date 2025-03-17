@@ -102,9 +102,9 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 		}, 1500);
 	}
 
-	document.addEventListener('astro:page-load', () => {
-		animateHero();
-	});
+	document.addEventListener('astro:page-load', animateHero);
+
+	document.addEventListener('popstate', animateHero);
 
 	const linkAbout = document.getElementById('link-about');
 	const linkProjects = document.getElementById('link-projects');
