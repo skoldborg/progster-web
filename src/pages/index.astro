@@ -19,6 +19,7 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 						'flex absolute bottom-0 left-0 w-full h-full lg:min-h-[30vw]',
 						'opacity-0 transition-all duration-100 ease-in-expo delay-200'
 					)}
+					transition:persist
 				>
 					<div
 						class={cx(
@@ -92,14 +93,17 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 	const introTextEl = document.getElementById('intro-text');
 
 	function animateHero() {
-		heroGraphicEl?.classList.add('reveal');
+		if (heroGraphicEl && introTextEl) {
+			console.log('h', heroGraphicEl);
 
-		setTimeout(() => {
-			introTextEl?.classList.add('reveal');
-		}, 1500);
+			heroGraphicEl?.classList.add('reveal');
+			setTimeout(() => {
+				introTextEl?.classList.add('reveal');
+			}, 1500);
+		}
 	}
 
-	animateHero();
+	document.addEventListener('DOMContentLoaded', animateHero);
 
 	const linkAbout = document.getElementById('link-about');
 	const linkProjects = document.getElementById('link-projects');
