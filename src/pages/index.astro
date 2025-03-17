@@ -101,6 +101,8 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 	}
 
 	function resetHeroAnimation() {
+		console.log('run');
+
 		const heroGraphicEl = document.getElementById('hero-graphic');
 		const introTextEl = document.getElementById('intro-text');
 
@@ -109,31 +111,25 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 	}
 
 	document.addEventListener('DOMContentLoaded', animateHero);
-	window.addEventListener('popstate', () => {
-		resetHeroAnimation(); // Reset first
-		setTimeout(animateHero, 50); // Re-trigger animation with a slight delay
-	});
 
 	const linkAbout = document.getElementById('link-about');
 	const linkProjects = document.getElementById('link-projects');
 
-	linkAbout?.addEventListener('click', (e) => {
+	function handleNavigation(e: Event): void {
 		e.preventDefault();
 
-		resetHeroAnimation();
+		const link = e.currentTarget as HTMLAnchorElement;
+		const target = link.getAttribute('href');
+		if (!target) return;
+
+		link.removeEventListener('click', handleNavigation);
 
 		setTimeout(() => {
-			navigate('/about');
+			navigate(target);
 		}, 1200);
-	});
+	}
 
-	linkProjects?.addEventListener('click', (e) => {
-		e.preventDefault();
+	linkAbout?.addEventListener('click', handleNavigation);
 
-		resetHeroAnimation();
-
-		setTimeout(() => {
-			navigate('/projects');
-		}, 1200);
-	});
+	linkProjects?.addEventListener('click', handleNavigation);
 </script>
