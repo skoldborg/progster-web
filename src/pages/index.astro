@@ -89,18 +89,23 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 <script>
 	import { navigate } from 'astro:transitions/client';
 
-	const heroGraphicEl = document.getElementById('hero-graphic');
-	const introTextEl = document.getElementById('intro-text');
-
 	function animateHero() {
+		const heroGraphicEl = document.getElementById('hero-graphic');
+		const introTextEl = document.getElementById('intro-text');
 		if (heroGraphicEl && introTextEl) {
-			console.log('h', heroGraphicEl);
-
 			heroGraphicEl?.classList.add('reveal');
 			setTimeout(() => {
 				introTextEl?.classList.add('reveal');
 			}, 1500);
 		}
+	}
+
+	function resetHeroAnimation() {
+		const heroGraphicEl = document.getElementById('hero-graphic');
+		const introTextEl = document.getElementById('intro-text');
+
+		heroGraphicEl?.classList.remove('reveal');
+		introTextEl?.classList.remove('reveal');
 	}
 
 	document.addEventListener('DOMContentLoaded', animateHero);
@@ -111,8 +116,7 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 	linkAbout?.addEventListener('click', (e) => {
 		e.preventDefault();
 
-		heroGraphicEl?.classList.remove('reveal');
-		introTextEl?.classList.remove('reveal');
+		resetHeroAnimation();
 
 		setTimeout(() => {
 			navigate('/about');
@@ -122,8 +126,7 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 	linkProjects?.addEventListener('click', (e) => {
 		e.preventDefault();
 
-		heroGraphicEl?.classList.remove('reveal');
-		introTextEl?.classList.remove('reveal');
+		resetHeroAnimation();
 
 		setTimeout(() => {
 			navigate('/projects');
