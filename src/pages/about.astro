@@ -7,21 +7,23 @@ import BannerGraphic from '../components/BannerGraphic.astro';
 ---
 
 <Layout subtitle="About">
-	<section class="wrapper relative h-full w-full overflow-hidden">
+	<section
+		class="wrapper relative md:w-full md:h-full overflow-x-hidden md:overflow-y-hidden"
+	>
 		<BannerGraphic />
-		<div class="flex flex-col md:h-full">
-			<div class="flex flex-col w-full mx-auto">
-				<div class="m-6 md:m-10 z-10">
+		<div class="mx-4 md:mx-0 flex flex-col md:h-full">
+			<div class="flex flex-col md:w-full mx-auto">
+				<div class="md:m-10 z-10">
 					<div
 						id="about-container"
 						class={cx(
 							'about-container',
-							'flex flex-col max-w-4xl',
-							'py-20 lg:py-10',
+							'flex flex-col md:w-full max-w-4xl',
+							'py-10 md:py-20 lg:py-10',
 							'opacity-0 transition-all duration-100 ease-in-expo delay-200'
 						)}
 					>
-						<img src="/me3.jpg" class="max-w-140 rounded-2xl mb-10" />
+						<!-- <img src="/me3.jpg" class="max-w-140 rounded-2xl mb-10" /> -->
 						<p class="font-bold mb-4 text-lg md:text-2xl">
 							Hi! <br /> My name is Pierre Sköldborg. I'm a freelance web developer
 							from Sweden living in Gothenburg.
