@@ -92,9 +92,6 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 	const introTextEl = document.getElementById('intro-text');
 
 	function animateHero() {
-		heroGraphicEl?.classList.remove('reveal');
-		introTextEl?.classList.remove('reveal');
-
 		heroGraphicEl?.classList.add('reveal');
 
 		setTimeout(() => {
@@ -104,6 +101,7 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 
 	document.addEventListener('astro:page-load', animateHero);
 	document.addEventListener('astro:after-swap', animateHero);
+	document.addEventListener('popstate', animateHero);
 
 	const linkAbout = document.getElementById('link-about');
 	const linkProjects = document.getElementById('link-projects');
