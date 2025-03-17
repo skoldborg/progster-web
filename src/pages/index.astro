@@ -108,8 +108,8 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 		introTextEl?.classList.remove('reveal');
 	}
 
-	document.addEventListener('DOMContentLoaded', animateHero);
-	document.addEventListener('popstate', animateHero);
+	document.addEventListener('DOMContentLoaded', animateHero, { once: true });
+	document.addEventListener('popstate', animateHero, { once: true });
 
 	const linkAbout = document.getElementById('link-about');
 	const linkProjects = document.getElementById('link-projects');
