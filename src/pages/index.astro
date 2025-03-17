@@ -40,7 +40,6 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 							class="flex items-center gap-2 justify-center sm:justify-end mt-2"
 						>
 							<a
-								data-navigate
 								href="mailto:pierre@progster.se"
 								target="_blank"
 								rel="noopener noreferrer"
@@ -49,7 +48,6 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 								<img src="/email.svg" alt="" class="w-10" />
 							</a>
 							<a
-								data-navigate
 								href="https://www.linkedin.com/in/pskoldborg/"
 								target="_blank"
 								rel="noopener noreferrer"
@@ -116,17 +114,26 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 		setTimeout(animateHero, 50); // Re-trigger animation with a slight delay
 	});
 
-	const links = document.querySelectorAll('[data-navigate]');
-	links.forEach((link) => {
-		link.addEventListener('click', (e) => {
-			e.preventDefault();
-			const target = link.getAttribute('href');
-			if (!target) return;
+	const linkAbout = document.getElementById('link-about');
+	const linkProjects = document.getElementById('link-projects');
 
-			resetHeroAnimation();
-			setTimeout(() => {
-				navigate(target);
-			}, 1200);
-		});
+	linkAbout?.addEventListener('click', (e) => {
+		e.preventDefault();
+
+		resetHeroAnimation();
+
+		setTimeout(() => {
+			navigate('/about');
+		}, 1200);
+	});
+
+	linkProjects?.addEventListener('click', (e) => {
+		e.preventDefault();
+
+		resetHeroAnimation();
+
+		setTimeout(() => {
+			navigate('/projects');
+		}, 1200);
 	});
 </script>
