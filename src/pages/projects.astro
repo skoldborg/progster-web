@@ -102,25 +102,33 @@ const projects = [
 <script>
 	import { navigate } from 'astro:transitions/client';
 
-	const graphicsEl = document.getElementById('banner-graphic');
-	const projectsContainer = document.getElementById('projects-container');
 	const linkBack = document.getElementById('link-back');
 
 	function animateGraphic() {
-		if (graphicsEl) {
-			graphicsEl.classList.remove('reveal');
+		const projectsContainer = document.getElementById('projects-container');
+		const graphicsEl = document.getElementById('banner-graphic');
 
+		if (graphicsEl) {
 			graphicsEl.classList.add('reveal');
+			projectsContainer?.classList.remove('hide');
 		}
 	}
 
-	animateGraphic();
+	function resetGraphicAnimation() {
+		const projectsContainer = document.getElementById('projects-container');
+		const graphicsEl = document.getElementById('banner-graphic');
+
+		graphicsEl?.classList.remove('reveal');
+		projectsContainer?.classList.add('hide');
+	}
+
+	document.addEventListener('astro:page-load', animateGraphic);
+	document.addEventListener('astro:before-swap', animateGraphic);
 
 	linkBack?.addEventListener('click', (e) => {
 		e.preventDefault();
 
-		graphicsEl?.classList.remove('reveal');
-		projectsContainer?.classList.add('hide');
+		resetGraphicAnimation();
 
 		setTimeout(() => {
 			navigate('/');

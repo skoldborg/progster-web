@@ -89,15 +89,11 @@ import BannerGraphic from '../components/BannerGraphic.astro';
 <script>
 	import { navigate } from 'astro:transitions/client';
 
-	const graphicsEl = document.getElementById('banner-graphic');
-	const aboutContainer = document.getElementById('about-container');
-	const linkBack = document.getElementById('link-back');
-
 	function animateGraphic() {
-		if (graphicsEl && aboutContainer) {
-			graphicsEl.classList.remove('reveal');
-			aboutContainer.classList.remove('reveal');
+		const graphicsEl = document.getElementById('banner-graphic');
+		const aboutContainer = document.getElementById('about-container');
 
+		if (graphicsEl && aboutContainer) {
 			graphicsEl.classList.add('reveal');
 
 			setTimeout(() => {
@@ -106,13 +102,22 @@ import BannerGraphic from '../components/BannerGraphic.astro';
 		}
 	}
 
-	animateGraphic();
-
-	linkBack?.addEventListener('click', (e) => {
-		e.preventDefault();
+	function resetGraphicAnimation() {
+		const graphicsEl = document.getElementById('banner-graphic');
+		const aboutContainer = document.getElementById('about-container');
 
 		graphicsEl?.classList.remove('reveal');
 		aboutContainer?.classList.remove('reveal');
+	}
+
+	document.addEventListener('astro:page-load', animateGraphic);
+	document.addEventListener('astro:before-swap', animateGraphic);
+
+	const linkBack = document.getElementById('link-back');
+	linkBack?.addEventListener('click', (e) => {
+		e.preventDefault();
+
+		resetGraphicAnimation();
 
 		setTimeout(() => {
 			navigate('/');

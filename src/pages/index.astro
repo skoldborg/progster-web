@@ -92,11 +92,8 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 		const heroGraphicEl = document.getElementById('hero-graphic');
 		const introTextEl = document.getElementById('intro-text');
 		if (heroGraphicEl && introTextEl) {
-			console.log('add');
-
 			heroGraphicEl?.classList.add('reveal');
 			setTimeout(() => {
-				console.log('add2');
 				introTextEl?.classList.add('reveal');
 			}, 1500);
 		}
@@ -105,7 +102,6 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 	function resetHeroAnimation() {
 		const heroGraphicEl = document.getElementById('hero-graphic');
 		const introTextEl = document.getElementById('intro-text');
-		console.log('remove');
 
 		heroGraphicEl?.classList.remove('reveal');
 		introTextEl?.classList.remove('reveal');
@@ -114,17 +110,12 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 	document.addEventListener('astro:page-load', animateHero);
 	document.addEventListener('astro:before-swap', resetHeroAnimation);
 
-	const linkAbout = document.getElementById('link-about');
-	const linkProjects = document.getElementById('link-projects');
-
 	function handleNavigation(e: Event): void {
 		e.preventDefault();
-		console.log(e);
 
 		const link = e.currentTarget as HTMLAnchorElement;
 		const target = link.getAttribute('href');
 		if (!target) return;
-		console.log('click', target);
 
 		resetHeroAnimation();
 
@@ -132,6 +123,9 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 			navigate(target);
 		}, 1200);
 	}
+
+	const linkAbout = document.getElementById('link-about');
+	const linkProjects = document.getElementById('link-projects');
 
 	linkAbout?.addEventListener('click', handleNavigation);
 
