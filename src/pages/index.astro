@@ -99,20 +99,7 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 		}, 1500);
 	}
 
-	document.addEventListener('astro:page-load', animateHero);
-	document.addEventListener('astro:after-swap', animateHero);
-
-	document.addEventListener('astro:after-swap', () => {
-		console.log('run', 'after-swap');
-	});
-
-	document.addEventListener('popstate', () => {
-		console.log('run', 'popste');
-	});
-
-	document.addEventListener('page-load', () => {
-		console.log('run', 'page-load');
-	});
+	animateHero();
 
 	const linkAbout = document.getElementById('link-about');
 	const linkProjects = document.getElementById('link-projects');
