@@ -53,10 +53,9 @@ const projects = [
 
 <Layout subtitle="Selected works">
 	<section
-		class="wrapper relative w-full overflow-x-hidden md:h-full md:overflow-hidden"
+		class="wrapper relative w-full overflow-hidden md:h-full md:overflow-hidden"
 	>
 		<BannerGraphic />
-		<div class="banner"></div>
 		<div class="relative flex flex-col md:h-full z-10">
 			<div class="pb-10 md:pb-0 mx-4 md:mx-10 mt-20 md:mt-40 max-w-6xl">
 				<div id="projects-container" class="projects-container">
@@ -102,8 +101,6 @@ const projects = [
 </style>
 
 <script>
-	import { navigate } from 'astro:transitions/client';
-
 	const linkBack = document.getElementById('link-back');
 
 	function animateGraphic() {
@@ -133,7 +130,7 @@ const projects = [
 		resetGraphicAnimation();
 
 		setTimeout(() => {
-			navigate('/');
+			window.location.href = '/';
 		}, 800);
 	});
 </script>

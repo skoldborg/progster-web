@@ -86,8 +86,6 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 </style>
 
 <script>
-	import { navigate } from 'astro:transitions/client';
-
 	function animateHero() {
 		const heroGraphicEl = document.getElementById('hero-graphic');
 		const introTextEl = document.getElementById('intro-text');
@@ -120,7 +118,7 @@ import HeroGraphics from '../components/HeroGraphics.astro';
 		resetHeroAnimation();
 
 		setTimeout(() => {
-			navigate(target);
+			window.location.href = target;
 		}, 1200);
 	}
 
