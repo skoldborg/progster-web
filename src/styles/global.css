@@ -40,6 +40,7 @@ body {
 body {
 	position: relative;
 	background-attachment: fixed;
+	background-color: #fe9908;
 	color: var(--black);
 	font-family: 'Roboto Mono', helvetica, arial, sans-serif;
 }

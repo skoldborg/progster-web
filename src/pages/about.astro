@@ -7,12 +7,9 @@ import BannerGraphic from '../components/BannerGraphic.astro';
 ---
 
 <Layout subtitle="About">
-	<section
-		class="wrapper relative md:w-full md:h-full overflow-x-hidden md:overflow-hidden"
-	>
+	<section class="relative md:w-full md:min-h-screen mb-80 md:overflow-hidden">
 		<BannerGraphic />
-
-		<div class="mx-4 md:mx-0 flex flex-col md:h-full">
+		<div class="mx-4 md:mx-0 flex flex-col md:min-h-screen">
 			<div class="flex flex-col md:w-full mx-auto">
 				<div class="md:m-10 z-10">
 					<div
@@ -71,10 +68,6 @@ import BannerGraphic from '../components/BannerGraphic.astro';
 </Layout>
 
 <style lang="scss">
-	.wrapper {
-		background: #fe9908;
-	}
-
 	.about-container {
 		transform: translateY(24px);
 		transition: all 800ms cubic-bezier(0.79, 0.3, 0, 0.96);
